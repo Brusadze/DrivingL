@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExamActivity"
+    android:orientation="vertical"
+    android:background="@drawable/backgr">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:id="@+id/countAndTimerLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/numberofbiletiText"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="17dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/medcap"
+                        android:text="01 / 30"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold"></TextView>
+
+                    <TextView
+                        android:id="@+id/countdownTimerText"
+                        android:layout_width="82dp"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp"
+                        android:fontFamily="@font/medcap"
+                        android:text="00:00:00"
+                        android:textColor="@color/white"
+                        android:textSize="22sp"
+                        android:textStyle="bold"></TextView>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+
+                    android:alignmentMode="alignMargins"
+                    android:columnOrderPreserved="false"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        app:cardBackgroundColor="@android:color/transparent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="0dp">
+
+                            <LinearLayout
+                                android:id="@+id/linearImageQuestion"
+                                android:layout_width="match_parent"
+                                android:layout_height="200dp"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/imageQuestion"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:contentDescription="TODO"
+                                    android:src="@drawable/capture"></ImageView>
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/shekitxvatext"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="რომელი ავტომობილის მძღოლი დაარღვევს საგზაო მოძრაობის წესებს ისრის მიმართულებით მოძრაობის შემთხვევაში ?"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:fontFamily="@font/medcap"
+                                android:textStyle="bold"></TextView>
+                        </LinearLayout>
+
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardElevation="6dp">
+
+                        <RelativeLayout
+                            android:id="@+id/firstQuestionRelative"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/pasuxi"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/pasuxiErtiText"
+                                android:layout_width="330dp"
+                                android:layout_height="wrap_content"
+                                android:text="თეთრი ავტომობილის მძღოლი"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:fontFamily="@font/medcap"
+                                android:textStyle="bold"></TextView>
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardElevation="6dp">
+
+                        <RelativeLayout
+                            android:id="@+id/secondQuestionRelative"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/pasuxi"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/pasuxiOriText"
+                                android:layout_width="330dp"
+                                android:layout_height="wrap_content"
+                                android:text="მწვანე ავტომობილის მძღოლი"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:fontFamily="@font/medcap"
+                                android:textStyle="bold"></TextView>
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardElevation="6dp">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeLayoutMesameQuest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/pasuxi"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/pasuxiSamiText"
+                                android:layout_width="330dp"
+                                android:layout_height="wrap_content"
+                                android:text="შავი ავტომობილის მძღოლი"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                android:fontFamily="@font/medcap"
+                                android:textStyle="bold"></TextView>
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardviewLast"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardElevation="6dp">
+
+                        <RelativeLayout
+                            android:id="@+id/relativeLayoutMeotxeQuest"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/pasuxi"
+                            android:gravity="center"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:id="@+id/pasuxiOtxiText"
+                                android:layout_width="330dp"
+                                android:layout_height="wrap_content"
+                                android:text="არცერთი ავტომობილის მძღოლი"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/medcap"
+                                android:textSize="15sp"
+                                android:textStyle="bold"></TextView>
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:id="@+id/videoLinear"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            android:background="#FF5733"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentLeft="true"
+                                android:layout_marginLeft="0dp"
+                                android:src="@drawable/playbutton">
+
+                            </ImageView>
+
+                            <TextView
+                                android:id="@+id/videoRelativeText"
+                                android:layout_width="260dp"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginTop="5dp"
+                                android:fontFamily="@font/medcap"
+                                android:text=" ვიდეო განმარტება"
+                                android:textAlignment="textStart"
+                                android:textColor="@color/white"
+                                android:textSize="16sp"
+                                android:textStyle="bold"></TextView>
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardBackgroundColor="@android:color/transparent"
+                        app:cardElevation="0dp">
+
+                        <RelativeLayout
+                            android:id="@+id/nextbuttonCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center"
+                            android:orientation="horizontal"
+                            >
+
+                            <Button
+                                android:id="@+id/nextQuestionButton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginRight="13dp"
+                                android:backgroundTint="#2cffab"
+                                android:text="შემდეგი"
+                                android:textColor="@color/white"></Button>
+
+
+                        </RelativeLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearView"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <VideoView
+            android:layout_marginTop="50dp"
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp">
+        </VideoView>
+    </LinearLayout>
+
+</RelativeLayout>

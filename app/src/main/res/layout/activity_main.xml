@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:scrollbars="none"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgr"
+    tools:context=".MainActivity"
+    tools:ignore="SpeakableTextPresentCheck">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+       <RelativeLayout
+           android:layout_marginTop="10dp"
+       android:layout_marginRight="20dp"
+       android:layout_marginLeft="20dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+           <TextView
+               android:id="@+id/nameSurname"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/medcap"
+               android:padding="22dp"
+               android:text="გამარჯობა,"
+               android:textAlignment="viewStart"
+               android:textColor="#FFFFFF"
+               android:textSize="15sp" />
+
+           <ImageView
+               android:id="@+id/profilePic"
+               android:layout_width="40dp"
+               android:layout_height="40dp"
+               android:layout_marginTop="10dp"
+               android:layout_alignParentRight="true"
+               android:src="@drawable/img_1"
+               app:srcCompat="@drawable/profile" />
+    </RelativeLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="40dp"
+           android:layout_marginLeft="5dp"
+           android:layout_marginRight="5dp"
+           android:alignmentMode="alignMargins"
+           android:columnOrderPreserved="false"
+           android:orientation="vertical">
+
+
+
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="90dp"
+               android:layout_rowWeight="1"
+               android:layout_columnWeight="1"
+               android:layout_margin="12dp"
+               app:cardCornerRadius="12dp"
+               app:cardElevation="6dp"
+               android:outlineSpotShadowColor="@color/black">
+
+               <RelativeLayout
+                   android:id="@+id/secondLayout"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:background="@drawable/backgrbutt"
+                   android:padding="16dp">
+
+                   <View
+                       android:layout_width="55dp"
+                       android:layout_height="55dp"
+                       android:layout_marginLeft="0dp"
+                       android:layout_marginTop="0dp"
+                       android:background="@drawable/backicons">
+
+
+                   </View>
+                   <ImageView
+                       android:layout_width="30dp"
+                       android:layout_height="30dp"
+                       android:layout_marginLeft="14dp"
+                       android:layout_marginTop="12dp"
+                       android:background="@drawable/timer"></ImageView>
+
+
+                   <TextView
+                       android:id="@+id/varjishiGamocda"
+                       android:layout_width="97dp"
+                       android:layout_height="36dp"
+                       android:layout_marginLeft="65dp"
+                       android:fontFamily="@font/medcap"
+                       android:text="პრაქტიკა"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"
+                       android:textStyle="bold" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="36dp"
+                       android:layout_marginLeft="65dp"
+                       android:layout_marginTop="30dp"
+                       android:fontFamily="@font/medcap"
+                       android:text="B კატეგორიის საკითხები"
+                       android:textColor="#959a9e"
+                       android:textSize="15sp"
+                       android:textStyle="bold" />
+
+
+               </RelativeLayout>
+           </androidx.cardview.widget.CardView>
+
+
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="90dp"
+               android:layout_rowWeight="1"
+               android:layout_columnWeight="1"
+               android:layout_margin="12dp"
+               app:cardCornerRadius="12dp"
+               app:cardElevation="6dp"
+               android:outlineSpotShadowColor="@color/black">
+
+               <RelativeLayout
+                   android:id="@+id/firstLayout"
+                   android:layout_width="match_parent"
+                   android:layout_gravity="center"
+                   android:layout_height="match_parent"
+                   android:background="@drawable/backgrbutt"
+                   android:padding="16dp" >
+
+                   <View
+                       android:layout_width="55dp"
+                       android:layout_height="55dp"
+                       android:layout_marginLeft="0dp"
+                       android:layout_marginTop="0dp"
+                       android:background="@drawable/backicons"
+                       >
+
+
+                   </View>
+                   <ImageView
+                       android:layout_width="30dp"
+                       android:layout_height="30dp"
+                       android:layout_marginLeft="14dp"
+                       android:layout_marginTop="12dp"
+                       android:background="@drawable/timer"></ImageView>
+
+
+                   <TextView
+                       android:layout_width="97dp"
+                       android:layout_height="36dp"
+                       android:layout_marginLeft="65dp"
+                       android:fontFamily="@font/medcap"
+                       android:text="გამოცდა"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"
+                       android:textStyle="bold" />
+
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="36dp"
+                       android:layout_marginLeft="65dp"
+                       android:layout_marginTop="30dp"
+                       android:fontFamily="@font/medcap"
+                       android:text="30 კითხვა, 30 წუთი"
+                       android:textColor="#959a9e"
+                       android:textSize="15sp"
+                       android:textStyle="bold" />
+
+
+               </RelativeLayout>
+
+           </androidx.cardview.widget.CardView>
+
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="90dp"
+               android:layout_rowWeight="1"
+               android:layout_columnWeight="1"
+               android:layout_margin="12dp"
+               app:cardCornerRadius="12dp"
+               app:cardElevation="6dp"
+               android:outlineSpotShadowColor="@color/black">
+
+               <RelativeLayout
+                   android:id="@+id/thirdLayout"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:background="@drawable/backgrbutt"
+                   android:padding="16dp">
+                   <View
+                       android:layout_width="55dp"
+                       android:layout_height="55dp"
+                       android:layout_marginLeft="0dp"
+                       android:layout_marginTop="0dp"
+                       android:background="@drawable/backicons">
+                   </View>
+                   <ImageView
+                       android:layout_width="30dp"
+                       android:layout_height="30dp"
+                       android:layout_marginLeft="14dp"
+                       android:layout_marginTop="12dp"
+                       android:background="@drawable/timer"></ImageView>
+                   <TextView
+                       android:layout_width="110dp"
+                       android:layout_height="36dp"
+                       android:layout_marginLeft="65dp"
+                       android:fontFamily="@font/medcap"
+                       android:text="ბილეთები"
+                       android:textColor="@color/white"
+                       android:textSize="18sp"
+                       android:textStyle="bold" />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="36dp"
+                       android:layout_marginLeft="65dp"
+                       android:layout_marginTop="30dp"
+                       android:fontFamily="@font/medcap"
+                       android:text="B/B1 კატეგორიის ბილეთები"
+                       android:textColor="#959a9e"
+                       android:textSize="13sp"
+                       android:textStyle="bold" />
+               </RelativeLayout>
+           </androidx.cardview.widget.CardView>
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="70dp"
+               android:layout_rowWeight="1"
+               android:layout_columnWeight="1"
+               android:layout_margin="12dp"
+               app:cardCornerRadius="12dp"
+               app:cardElevation="6dp"
+               android:outlineSpotShadowColor="@color/black">
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="horizontal"
+                   android:weightSum="3">
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:background="@drawable/backgrbutt">
+
+                       <View
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="10dp"
+                           android:background="@drawable/momrgvaleba"></View>
+
+                       <TextView
+                           android:id="@+id/pirvelisTextProcent"
+                           android:layout_width="30dp"
+                           android:layout_height="30dp"
+                           android:layout_marginStart="45dp"
+                           android:layout_marginTop="12dp"
+                           android:fontFamily="@font/medcap"
+                           android:text="19%"
+                           android:textColor="@color/white"></TextView>
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="30dp"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="45dp"
+                           android:ellipsize="end"
+                           android:fontFamily="@font/medcap"
+                           android:maxLines="1"
+                           android:text="მაფრთხილებელი"
+                           android:textColor="@color/white"
+                           android:textSize="10dp"></TextView>
+
+                   </RelativeLayout>
+                   <View
+                       android:layout_width="1dp"
+                       android:layout_height="match_parent"
+                       android:background="#21292f">
+                   </View>
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:background="@drawable/backgrbutt">
+
+                       <View
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="10dp"
+                           android:background="@drawable/momrgvaleba2"></View>
+
+                       <TextView
+                           android:id="@+id/meoretxtProcent"
+                           android:layout_width="30dp"
+                           android:layout_height="30dp"
+                           android:layout_marginStart="45dp"
+                           android:layout_marginTop="12dp"
+                           android:fontFamily="@font/medcap"
+                           android:text="7%"
+                           android:textColor="@color/white"></TextView>
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="30dp"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="45dp"
+                           android:ellipsize="end"
+                           android:fontFamily="@font/medcap"
+                           android:maxLines="1"
+                           android:text="მარეგულირებელი"
+                           android:textColor="@color/white"
+                           android:textSize="10dp"></TextView>
+                   </RelativeLayout>
+                   <View
+                       android:layout_width="1dp"
+                       android:layout_height="match_parent"
+                       android:background="#21292f">
+                   </View>
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:background="@drawable/backgrbutt">
+
+                       <View
+                           android:layout_width="25dp"
+                           android:layout_height="25dp"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="10dp"
+                           android:background="@drawable/momrgvaleba3"></View>
+
+                       <TextView
+                           android:id="@+id/mesametxtProcent"
+                           android:layout_width="30dp"
+                           android:layout_height="30dp"
+                           android:layout_marginStart="45dp"
+                           android:layout_marginTop="12dp"
+                           android:fontFamily="@font/medcap"
+                           android:text="1%"
+                           android:textColor="@color/white"></TextView>
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="30dp"
+                           android:layout_marginStart="10dp"
+                           android:layout_marginTop="45dp"
+                           android:ellipsize="end"
+                           android:fontFamily="@font/medcap"
+                           android:maxLines="1"
+                           android:text="ამკრძალავი"
+                           android:textColor="@color/white"
+                           android:textSize="10dp"></TextView>
+                   </RelativeLayout>
+
+
+               </LinearLayout>
+
+
+           </androidx.cardview.widget.CardView>
+
+           <TextView
+               android:layout_marginTop="5dp"
+               android:layout_width="match_parent"
+               android:layout_height="20dp"
+               android:fontFamily="@font/medcap"
+               android:text="ჩაბარების ალბათობა"
+               android:textAlignment="center"
+               android:textColor="@color/white"
+               >
+
+           </TextView>
+
+           <androidx.cardview.widget.CardView
+               android:layout_width="match_parent"
+               android:layout_height="20dp"
+               android:layout_marginLeft="12dp"
+               android:layout_marginRight="12dp"
+               android:layout_marginTop="5dp"
+               app:cardCornerRadius="5dp"
+               app:cardElevation="6dp"
+               android:outlineSpotShadowColor="@color/black">
+
+               <RelativeLayout
+                   android:id="@+id/chaabarebTuVer"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:background="@drawable/backgrbutt"
+                   >
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:layout_alignParentTop="true"
+                       android:background="#E0183D"></View>
+
+                   <View
+                       android:id="@+id/mwvaneLine"
+                       android:layout_width="230dp"
+                       android:layout_height="match_parent"
+                       android:layout_alignParentTop="true"
+                       android:background="#00FF00"></View>
+               </RelativeLayout>
+
+
+
+           </androidx.cardview.widget.CardView>
+
+       </LinearLayout>
+       <androidx.core.widget.NestedScrollView
+           android:layout_width="match_parent"
+           android:layout_height="150dp"
+           android:layout_margin="12dp">
+           <LinearLayout
+               android:id="@+id/userExamResultsLinear"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="50dp"
+                   android:background="#25343d">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="20dp"
+                       android:layout_marginTop="4dp"
+                       android:fontFamily="@font/medcap"
+                       android:text=" ტესტის შედეგი : "
+                       android:textAlignment="textStart"
+                       android:textColor="@color/white"
+                       android:textSize="12sp" />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="15dp"
+                       android:layout_marginTop="25dp"
+                       android:fontFamily="@font/medcap"
+                       android:text=" სწორი პასუხი : არასწორი პასუხი"
+                       android:textAlignment="textStart"
+                       android:textColor="@color/white"
+                       android:textSize="8sp" />
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="4dp"
+                       android:background="@color/white"
+                       android:layout_alignParentBottom="true">
+                   </View>
+               </RelativeLayout>
+           </LinearLayout>
+       </androidx.core.widget.NestedScrollView>
+
+   </LinearLayout>
+
+
+   <!-- <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/youtube_player"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000" />-->
+
+
+</ScrollView>

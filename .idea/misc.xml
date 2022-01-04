@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/drawable/backgr.xml" value="0.33" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/drawable/backgrbutt.xml" value="0.2828125" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/drawable/backicons.xml" value="0.33" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/drawable/momrgvaleba.xml" value="0.3828125" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/drawable/momrgvaleba2.xml" value="0.3828125" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/drawable/momrgvaleba3.xml" value="0.3828125" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/drawable/pasuxi.xml" value="0.26875" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/drawable/shekitxva.xml" value="0.26875" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/activity_add.xml" value="0.25" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/activity_biletebi.xml" value="0.33" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/activity_categories_class.xml" value="0.2625" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/activity_exam.xml" value="0.33" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/activity_finishexam_layout.xml" value="0.3328804347826087" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/activity_progress.xml" value="0.25" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/activity_upload.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/biletebi.xml" value="0.33" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/content_navigation_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/examresults.xml" value="0.33" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/fragment_blank.xml" value="0.28854166666666664" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/fragment_gallery.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/fragment_slideshow.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/mainlayout.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Badri/Downloads/DrivingL/app/src/main/res/layout/my_row.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

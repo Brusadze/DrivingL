@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:background="#25343d">
+
+        <TextView
+            android:id="@+id/testresultText"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/medcap"
+            android:text=" ტესტის შედეგი : "
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/sworiarasworiText"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/medcap"
+            android:text=" სწორი პასუხი : არასწორი პასუხი"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="8sp" />
+        <View
+            android:id="@+id/qvedaXaziColor"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true">
+
+        </View>
+
+</RelativeLayout>
