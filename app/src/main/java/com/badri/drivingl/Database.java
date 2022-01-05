@@ -13,24 +13,24 @@ import java.sql.Statement;
 public class Database {
     private final Context context;
     private SQLiteDatabase database;
-    private SampleSQLiteDBHelper dbHelper;
+    private SQLITEDATABASEHelper dbHelperr;
 
     public Database(Context context){
         this.context = context;
-        dbHelper = new SampleSQLiteDBHelper(context);
+        dbHelperr = new SQLITEDATABASEHelper(context);
     }
 
     public Database open() throws SQLException
     {
-        dbHelper.openDataBase();
-        dbHelper.close();
-        database = dbHelper.getReadableDatabase();
+        //dbHelper.openDataBase();
+        dbHelperr.close();
+        database = dbHelperr.getReadableDatabase();
         return this;
     }
 
     public void close()
     {
-        dbHelper.close();
+        dbHelperr.close();
     }
 
     public int burjandze;

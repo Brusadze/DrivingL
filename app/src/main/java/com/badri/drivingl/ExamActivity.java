@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -46,6 +47,9 @@ public class ExamActivity extends AppCompatActivity {
     Button nextQuestionButton;
 
     Database database;
+    //stats database
+    Database databaseStats;
+    DBManager dbManager;
     VideoView videoView;
     RelativeLayout relativeLayoutMesameQuest,relativeLayoutMeotxeQuest,
             firstQuestionRelative,secondQuestionRelative , countAndTimerLayout, nextbuttonCard;
@@ -65,13 +69,25 @@ public class ExamActivity extends AppCompatActivity {
     //Declare timer
     CountDownTimer cTimer = null;
     String correctAnswerValue;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_exam);
+
+
+
         //final SampleSQLiteDBHelper db = new SampleSQLiteDBHelper(this);
         database = new Database(this);
         database.open();
+
+        dbManager = new DBManager(this);
+        dbManager.open();
+        dbManager.getValues();
+
 
         RelativeLayout videoLinear =  findViewById(R.id.videoLinear);
         RelativeLayout nextbuttonCard = findViewById(R.id.nextbuttonCard);
@@ -161,6 +177,7 @@ public class ExamActivity extends AppCompatActivity {
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
+                        //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
                         startActivity(intent);
                     }
                     getRandom();
@@ -180,6 +197,7 @@ public class ExamActivity extends AppCompatActivity {
                         sworiPasuxebiExamBolos++;
                         correctAnswer = 1;
                         trueAnswer = true;
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -191,6 +209,7 @@ public class ExamActivity extends AppCompatActivity {
                     else{
                         falseAnswer = 1;
                         trueAnswer = false;
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -205,6 +224,8 @@ public class ExamActivity extends AppCompatActivity {
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
+                        //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
+                        dbManager.insertExamFinishData(sworiPasuxebiExamBolos);
                         startActivity(intent);
                     }
 
@@ -225,6 +246,7 @@ public class ExamActivity extends AppCompatActivity {
                         //relativeLayoutMesameQuest.setBackgroundColor(Color.parseColor("#00ff00"));
                         correctAnswer = 1;
                         trueAnswer = true;
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -236,6 +258,7 @@ public class ExamActivity extends AppCompatActivity {
                     else{
                         falseAnswer = 1;
                         trueAnswer = false;
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -250,6 +273,8 @@ public class ExamActivity extends AppCompatActivity {
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
+                        //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
+                        dbManager.insertExamFinishData(sworiPasuxebiExamBolos);
                         startActivity(intent);
                     }
                     getRandom();
@@ -269,6 +294,7 @@ public class ExamActivity extends AppCompatActivity {
                         //relativeLayoutMeotxeQuest.setBackgroundColor(Color.parseColor("#00ff00"));
                         correctAnswer = 1;
                         trueAnswer = true;
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -280,6 +306,7 @@ public class ExamActivity extends AppCompatActivity {
                     else{
                         falseAnswer = 1;
                         trueAnswer = false;
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -294,6 +321,10 @@ public class ExamActivity extends AppCompatActivity {
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);*/
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
+
+                        //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
+                        dbManager.insertExamFinishData(sworiPasuxebiExamBolos);
+
                         startActivity(intent);
                     }
                     getRandom();

@@ -4,6 +4,8 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.transition.Slide;
@@ -20,6 +22,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,8 +62,11 @@ public class MainActivity extends YouTubeBaseActivity{
     examresults _examresults;
     LinearLayout userExamResultsLinear;
     int size;
+    private DBManager dbManager;
 
-
+    private SimpleCursorAdapter adapter;
+    //to check firstrun
+    SharedPreferences prefs = null;
 
 
     @Override
@@ -68,6 +74,7 @@ public class MainActivity extends YouTubeBaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView profilePic = findViewById(R.id.profilePic);
+        prefs = getSharedPreferences("com.badri.drivingl", MODE_PRIVATE);
 
         nameSurname = findViewById(R.id.nameSurname);
         varjishiGamocda = findViewById(R.id.varjishiGamocda);
@@ -82,9 +89,13 @@ public class MainActivity extends YouTubeBaseActivity{
         meoretxtProcent = findViewById(R.id.meoretxtProcent);
         mesametxtProcent = findViewById(R.id.mesametxtProcent);
 
+        //COPYING DATABASE FROM ASSETS TO DATA/DATABASES/
         databaseCopy();
-        statsDatabaseCopy();
+        //statsDatabaseCopy();
 
+
+        dbManager = new DBManager(this);
+        dbManager.open();
 
         profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,9 +140,10 @@ public class MainActivity extends YouTubeBaseActivity{
         startCountAnimation(mesametxtProcent, 10);
 
 
-        for(int i = 0; i < 7; i++){
+        /*for(int i = 0; i < 7; i++){
             layoutInflateUserExams("ჩაბარებული",15,15);
-        }
+        }*/
+
 
         //Button buttonPlay = findViewById(R.id.button);
         //final YouTubePlayerView youtubePlayerView = findViewById(R.id.youtube_player);
@@ -169,6 +181,7 @@ public class MainActivity extends YouTubeBaseActivity{
         startWidthAnimation();
 
     }
+
     private void startCountAnimation(TextView txtView , int _lastNum) {
         ValueAnimator animator = ValueAnimator.ofInt(0, _lastNum);
         animator.setDuration(5000);
@@ -367,23 +380,25 @@ public class MainActivity extends YouTubeBaseActivity{
 
     void layoutInflateUserExams(String shedegi , int swori, int araswori){
 
-        String shedegiText = shedegi;
-        String sworiText = String.valueOf(swori);
-        String arasworiText = String.valueOf(araswori);
+        for(int i = 0; i <= 5; i++){
+            String shedegiText = shedegi;
+            String sworiText = String.valueOf(swori);
+            String arasworiText = String.valueOf(araswori);
+            LayoutInflater inflater = LayoutInflater.from(this);
+            RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.examresults, null, false);
 
-        LayoutInflater inflater = LayoutInflater.from(this);
-        RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.examresults, null, false);
+            userExamResultsLinear = (LinearLayout) findViewById(R.id.userExamResultsLinear);
+            userExamResultsLinear.addView(layout);
 
-        userExamResultsLinear = (LinearLayout) findViewById(R.id.userExamResultsLinear);
-        userExamResultsLinear.addView(layout);
+            TextView testresultText = layout.findViewById(R.id.testresultText);
+            TextView sworiarasworiText = layout.findViewById(R.id.sworiarasworiText);
+            View qvedaXaziColor = layout.findViewById(R.id.qvedaXaziColor);
 
-        TextView testresultText = layout.findViewById(R.id.testresultText);
-        TextView sworiarasworiText = layout.findViewById(R.id.sworiarasworiText);
-        View qvedaXaziColor = layout.findViewById(R.id.qvedaXaziColor);
+            testresultText.setText(" ტესტის შედეგი : " + shedegiText);
+            sworiarasworiText.setText(" სწორი პასუხი : " + sworiText + " არასწორი პასუხი : " + arasworiText);
+            qvedaXaziColor.setBackgroundColor(Color.GREEN);
+        }
 
-        testresultText.setText(" ტესტის შედეგი : " + shedegiText);
-        sworiarasworiText.setText(" სწორი პასუხი : " + sworiText + " არასწორი პასუხი : " + arasworiText);
-        qvedaXaziColor.setBackgroundColor(Color.GREEN);
     }
 
 }
