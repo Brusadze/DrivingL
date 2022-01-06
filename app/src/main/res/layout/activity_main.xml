@@ -378,6 +378,7 @@
            </TextView>
 
            <androidx.cardview.widget.CardView
+               android:id="@+id/cardViewOfProgress"
                android:layout_width="match_parent"
                android:layout_height="20dp"
                android:layout_marginLeft="12dp"

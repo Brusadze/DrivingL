@@ -86,8 +86,8 @@ public class ExamActivity extends AppCompatActivity {
 
         dbManager = new DBManager(this);
         dbManager.open();
-        dbManager.getValues();
 
+        dbManager.insertExamFinishData(0);
 
         RelativeLayout videoLinear =  findViewById(R.id.videoLinear);
         RelativeLayout nextbuttonCard = findViewById(R.id.nextbuttonCard);
@@ -274,7 +274,6 @@ public class ExamActivity extends AppCompatActivity {
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
-                        dbManager.insertExamFinishData(sworiPasuxebiExamBolos);
                         startActivity(intent);
                     }
                     getRandom();
@@ -323,7 +322,6 @@ public class ExamActivity extends AppCompatActivity {
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
 
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
-                        dbManager.insertExamFinishData(sworiPasuxebiExamBolos);
 
                         startActivity(intent);
                     }
@@ -676,11 +674,12 @@ public class ExamActivity extends AppCompatActivity {
             }
             else{
                 linearImageQuestion.setVisibility(View.VISIBLE);
-                /*int id = getResources().getIdentifier("com.badri.drivingl:drawable/" + "bileti" + String.valueOf(i), null, null);
-                imageQuestion.setImageResource(id);*/
+                int id = getResources().getIdentifier("com.badri.drivingl:drawable/" + "bdr" + database.imageValue.substring(database.imageValue.length()-4) + String.valueOf(i), null, null);
+                Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4));
+                imageQuestion.setImageResource(id);
                 //(database.questionValue.equals(database.imageValue))
-                String imgURL  = "http://nelazviadi.ge/exams/images/" + database.imageValue;
-                new DownLoadImageTask(imageQuestion).execute(imgURL);
+                /*String imgURL  = "http://nelazviadi.ge/exams/images/" + database.imageValue;
+                new DownLoadImageTask(imageQuestion).execute(imgURL);*/
 
             }
             if(!database.questionValue.equals(""))

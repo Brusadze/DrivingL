@@ -92,7 +92,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:contentDescription="TODO"
-                                    android:src="@drawable/capture"></ImageView>
+                                    android:src="@drawable/bileti2"></ImageView>
 
                             </LinearLayout>
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.transition.Slide;
 import android.transition.Transition;
@@ -16,6 +17,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -27,6 +29,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.youtube.player.YouTubeBaseActivity;
@@ -58,7 +61,7 @@ public class MainActivity extends YouTubeBaseActivity{
     TextView nameSurname , varjishiGamocda, pirvelisTextProcent
             ,meoretxtProcent,mesametxtProcent;
     View mwvaneLine;
-
+    CardView cardViewOfProgress;
     examresults _examresults;
     LinearLayout userExamResultsLinear;
     int size;
@@ -68,6 +71,9 @@ public class MainActivity extends YouTubeBaseActivity{
     //to check firstrun
     SharedPreferences prefs = null;
 
+    //VALUES FOR PROGRESSBAR
+    private int widthProgress;
+    private int heightProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +88,7 @@ public class MainActivity extends YouTubeBaseActivity{
         RelativeLayout secondLayout = findViewById(R.id.secondLayout);
         RelativeLayout chaabarebTuVer = findViewById(R.id.chaabarebTuVer);
         RelativeLayout thirdLayout = findViewById(R.id.thirdLayout);
+        cardViewOfProgress = findViewById(R.id.cardViewOfProgress); //CARDVIEW OF PROGRESS
         //RelativeLayout biletebiLayout = findViewById(R.id.biletebiLayout);
         userExamResultsLinear = findViewById(R.id.userExamResultsLinear);
         pirvelisTextProcent = findViewById(R.id.pirvelisTextProcent);
@@ -93,9 +100,25 @@ public class MainActivity extends YouTubeBaseActivity{
         databaseCopy();
         //statsDatabaseCopy();
 
-
         dbManager = new DBManager(this);
         dbManager.open();
+
+        //GETTING WIDTH AND HEIGHT OF CARDVIEW OF PROGRESS
+        ViewTreeObserver vto = cardViewOfProgress.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+                    cardViewOfProgress.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                } else {
+                    cardViewOfProgress.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                }
+                widthProgress  = cardViewOfProgress.getMeasuredWidth();
+                heightProgress = cardViewOfProgress.getMeasuredHeight();
+                Log.d("CARD",widthProgress + "width height" + heightProgress);
+                startWidthAnimation();
+            }
+        });
 
         profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,9 +163,8 @@ public class MainActivity extends YouTubeBaseActivity{
         startCountAnimation(mesametxtProcent, 10);
 
 
-        /*for(int i = 0; i < 7; i++){
-            layoutInflateUserExams("ჩაბარებული",15,15);
-        }*/
+        layoutInflateUserExams("ჩაბარებული",15,15);
+
 
 
         //Button buttonPlay = findViewById(R.id.button);
@@ -178,7 +200,7 @@ public class MainActivity extends YouTubeBaseActivity{
         /*size = chaabarebTuVer.getWidth();
         Log.v("SIZE ", String.valueOf(size));*/
 
-        startWidthAnimation();
+
 
     }
 
@@ -195,11 +217,9 @@ public class MainActivity extends YouTubeBaseActivity{
     }
 
 
-
-
     private void startWidthAnimation(){
-        ValueAnimator widthAnimator = ValueAnimator.ofInt(mwvaneLine.getWidth(), 230);
-        widthAnimator.setDuration(6000);
+        ValueAnimator widthAnimator = ValueAnimator.ofInt(mwvaneLine.getWidth(), widthProgress);
+        widthAnimator.setDuration(8000);
         widthAnimator.setInterpolator(new DecelerateInterpolator());
         widthAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
