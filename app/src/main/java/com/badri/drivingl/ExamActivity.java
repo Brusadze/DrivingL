@@ -674,8 +674,10 @@ public class ExamActivity extends AppCompatActivity {
             }
             else{
                 linearImageQuestion.setVisibility(View.VISIBLE);
-                int id = getResources().getIdentifier("com.badri.drivingl:drawable/" + "bdr" + database.imageValue.substring(database.imageValue.length()-4) + String.valueOf(i), null, null);
-                Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4));
+                //int id = getResources().getIdentifier("com.badri.drivingl:drawable/" + "bdr" + database.imageValue + String.valueOf(i), null, null);
+                //int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue , "id", "com.badri.drivingl");
+                int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
                 imageQuestion.setImageResource(id);
                 //(database.questionValue.equals(database.imageValue))
                 /*String imgURL  = "http://nelazviadi.ge/exams/images/" + database.imageValue;
