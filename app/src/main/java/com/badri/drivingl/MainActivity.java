@@ -59,7 +59,7 @@ public class MainActivity extends YouTubeBaseActivity{
     private static String videoId;
     YouTubePlayer.OnInitializedListener mOnInitializedListener;
     TextView nameSurname , varjishiGamocda, pirvelisTextProcent
-            ,meoretxtProcent,mesametxtProcent;
+            ,meoretxtProcent,mesametxtProcent,albatoba;
     View mwvaneLine;
     CardView cardViewOfProgress;
     examresults _examresults;
@@ -95,6 +95,7 @@ public class MainActivity extends YouTubeBaseActivity{
         mwvaneLine = findViewById(R.id.mwvaneLine);
         meoretxtProcent = findViewById(R.id.meoretxtProcent);
         mesametxtProcent = findViewById(R.id.mesametxtProcent);
+        albatoba = findViewById(R.id.albatoba);
 
         //COPYING DATABASE FROM ASSETS TO DATA/DATABASES/
         databaseCopy();
@@ -102,6 +103,8 @@ public class MainActivity extends YouTubeBaseActivity{
 
         dbManager = new DBManager(this);
         dbManager.open();
+
+        chaabarebsTuVera();
 
         //GETTING WIDTH AND HEIGHT OF CARDVIEW OF PROGRESS
         ViewTreeObserver vto = cardViewOfProgress.getViewTreeObserver();
@@ -216,9 +219,20 @@ public class MainActivity extends YouTubeBaseActivity{
         animator.start();
     }
 
+    private float chaabarebsTuVera(){
+        loadStats();
+        //ramden pasuxzemaq danacheri xeli
+        float jami = loadStatsCorrect + loadStatsFalse;
+        float resultati = (loadStatsCorrect / jami) * 100;
+        Log.d("resultati", Math.round(resultati) + " " + jami + "<jami" + loadStatsCorrect + "< corrects");
+        return  resultati;
+    }
 
+    @SuppressLint("SetTextI18n")
     private void startWidthAnimation(){
-        ValueAnimator widthAnimator = ValueAnimator.ofInt(mwvaneLine.getWidth(), widthProgress);
+        albatoba.setText("ჩაბარების ალბათობა არის " + Math.round((widthProgress * chaabarebsTuVera())/1000) + " %");
+        ValueAnimator widthAnimator = ValueAnimator.ofInt(mwvaneLine.getWidth(), Math.round((widthProgress * chaabarebsTuVera())/100));
+        Log.d("PROCENT", String.valueOf(Math.round((widthProgress * chaabarebsTuVera())/1000)) + " es aris witlis sigrdzis 33 procenti");
         widthAnimator.setDuration(8000);
         widthAnimator.setInterpolator(new DecelerateInterpolator());
         widthAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
