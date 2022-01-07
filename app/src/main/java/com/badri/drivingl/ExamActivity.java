@@ -34,6 +34,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -115,11 +116,7 @@ public class ExamActivity extends AppCompatActivity {
         //DEFINING UI OBJECTS WITH R.id s
         initializeEnvironment();
         getRandom(); //GETS RANDOM NUMBER AND ASSIGNS TO shemtxvevitiNumber
-        Log.d("Shemtxv" , String.valueOf(shemtxvevitiNumber));
-        Integer[] excludeThis = {70,71,72,74,82,83,84,85,86,87};
-        if(Arrays.asList(excludeThis).contains(shemtxvevitiNumber)) {
-            getRandom();
-        }
+
         Intent mIntent = getIntent();
         int switchMode = mIntent.getIntExtra("switchMode", 0);
 
@@ -170,6 +167,7 @@ public class ExamActivity extends AppCompatActivity {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+
                     }
                     if(textNumber > 30){
                         Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
@@ -660,14 +658,14 @@ public class ExamActivity extends AppCompatActivity {
         }
     }
     private void arrageUI(int i){
-        database.getQuestion(i);
+        //database.getQuestion(i);
         database.getAnswers(i);
       Log.v("DATABASE VALUES",database.questionValue + " @@ " +
               database.answerOneValue + " @@ " +
               database.answerTwoValue + " @@ " +
               database.answerThreeValue + " @@ " +
               database.answerFourValue + " @@ ");
-            if(database.imageValue.equals("") || database.imageValue.isEmpty()){
+            if(database.imageValue.equals("")){
                 linearImageQuestion.setVisibility(View.GONE);
                /* String imgURL  = "http://nelazviadi.ge/exams/images/" + database.imageValue;
                 new DownLoadImageTask(imageQuestion).execute(imgURL);*/
@@ -684,10 +682,8 @@ public class ExamActivity extends AppCompatActivity {
                 new DownLoadImageTask(imageQuestion).execute(imgURL);*/
 
             }
-            if(!database.questionValue.equals(""))
-                shekitxvatext.setText(database.questionValue);
-            else
-                shekitxvatext.setVisibility(View.GONE);
+            shekitxvatext.setText(database.questionValue);
+
             if(!database.answerOneValue.equals(""))
                 pasuxiErtiText.setText(database.answerOneValue);
             else
@@ -724,7 +720,7 @@ public class ExamActivity extends AppCompatActivity {
 
 
     public int shemtxvevitiNumber;
-
+    private List<Integer> notRepeat = new ArrayList<Integer>();;
     public void getRandom(){
         /* int rnd = new Random().nextInt(biletebi1.length - 1);
         shemtxvevitiNumber = biletebi1[rnd];
@@ -734,6 +730,7 @@ public class ExamActivity extends AppCompatActivity {
         int low = 1; //INCLUSIVE
         int high = database.burjandze + 1; //EXCLUSIVE max category 1,2,3,4
         shemtxvevitiNumber = r.nextInt(high-low) + low;
+
         Log.d("RANDOM NUM",String.valueOf(shemtxvevitiNumber));
     }
 

@@ -37,12 +37,12 @@ public class Database {
     public void burjo(){
 
         //final String MY_QUERY = "SELECT MAX(_id) AS _id FROM exams WHERE category = 1";
-        final String MY_QUERY = "SELECT MAX(_id) AS _id FROM exams WHERE category = 'ყველა'";
+        final String MY_QUERY = "SELECT MAX(randomId) AS randomId FROM exams WHERE category = 'ყველა'";
         Cursor mCursor = database.rawQuery(MY_QUERY, null);
         try {
             if (mCursor.getCount() > 0) {
                 mCursor.moveToFirst();
-                burjandze = mCursor.getInt(mCursor.getColumnIndex("_id"));
+                burjandze = mCursor.getInt(mCursor.getColumnIndex("randomId"));
                 Log.d("br", String.valueOf(burjandze));
             }
         } catch (Exception ignored) {
@@ -52,6 +52,7 @@ public class Database {
     }
 
     public String questionValue;
+/*
 
     public void getQuestion(int id){
         try{
@@ -71,6 +72,7 @@ public class Database {
         }
 
     }
+*/
 
     public String answerOneValue;
     public String answerTwoValue;
@@ -82,7 +84,7 @@ public class Database {
     public void getAnswers(int id){
         try{
             String s = String.valueOf(id);
-            String query ="SELECT answerOne,answerTwo,answerThree,answerFour,correctANSWER,imageView,ganmarteba FROM exams " + "WHERE _id = " + s;
+            String query ="SELECT answerOne,answerTwo,answerThree,answerFour,correctANSWER,imageView,ganmarteba,question FROM exams " + "WHERE randomId = " + s;
             Cursor cursor = database.rawQuery(query, null);
             if (cursor.moveToFirst()){
                 do{
@@ -93,6 +95,7 @@ public class Database {
                     correctAnswerValue = cursor.getString(4);
                     imageValue = cursor.getString(5);
                     ganmartebaValue = cursor.getString(6);
+                    questionValue = cursor.getString(7);
                     Log.d("db", answerOneValue + answerTwoValue + answerThreeValue + answerFourValue);
                 }while (cursor.moveToNext());
             }
