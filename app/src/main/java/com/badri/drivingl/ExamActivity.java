@@ -25,13 +25,20 @@ import android.widget.VideoView;
 
 import java.io.BufferedReader;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -89,6 +96,19 @@ public class ExamActivity extends AppCompatActivity {
         dbManager.open();
 
         //dbManager.insertExamFinishData(0);
+
+        try {
+            createTextFileForResults();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        addDataToTextFile();
+
+        try {
+            readDataFromTextFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         RelativeLayout videoLinear =  findViewById(R.id.videoLinear);
         RelativeLayout nextbuttonCard = findViewById(R.id.nextbuttonCard);
@@ -576,7 +596,7 @@ public class ExamActivity extends AppCompatActivity {
             numberofbiletiText.setTextColor(Color.GREEN);
         }
     }
-    void initializeEnvironment(){
+    void initializeEnvironment() {
         numberofbiletiText = (TextView) findViewById(R.id.numberofbiletiText);
         numberofbiletiText.setText("01 / 30");
         countdownTimerText = (TextView) findViewById(R.id.countdownTimerText);
@@ -610,7 +630,47 @@ public class ExamActivity extends AppCompatActivity {
 
 
 
+    private String fileSaxeli = "examResultsTextFile.txt";
+    private File file;
+    private void createTextFileForResults() throws IOException {
+        file = new File(getFilesDir() + "/" + fileSaxeli);
+    }
+    private void addDataToTextFile(){
+        if(file.exists()){
+            //Toast.makeText(this,"FILE EXISTS",Toast.LENGTH_LONG).show();
+            Log.v("EXISTS",getFilesDir() + "/" + fileSaxeli);
+        }
+        else {
+            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(getFilesDir() + "/" + fileSaxeli), StandardCharsets.UTF_8))) {
+                writer.write("bb" + "\n");
+                writer.write("bb" + "\n");
+                writer.write("bb" + "\n");
+                writer.write("bb" + "\n");
+                writer.write("bb" + "\n");
+                writer.write("5" + "\n");
 
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    private void readDataFromTextFile() throws IOException {
+        // Open the file
+        FileInputStream fstream = new FileInputStream(getFilesDir() + "/" + fileSaxeli);
+        BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+
+        String strLine;
+        List<String> listStrings = new ArrayList<>();
+//Read File Line By Line
+        while ((strLine = br.readLine()) != null)   {
+            // Print the content on the console
+            listStrings.add(strLine);
+        }
+        Log.d("readFrom" , String.valueOf(listStrings.get(5)));
+//Close the input stream
+        fstream.close();
+    }
 
 
     public static final String FILE_NAME = "statistics.txt";
