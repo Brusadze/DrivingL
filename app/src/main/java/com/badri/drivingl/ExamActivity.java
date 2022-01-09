@@ -88,7 +88,7 @@ public class ExamActivity extends AppCompatActivity {
         dbManager = new DBManager(this);
         dbManager.open();
 
-        dbManager.insertExamFinishData(0);
+        //dbManager.insertExamFinishData(0);
 
         RelativeLayout videoLinear =  findViewById(R.id.videoLinear);
         RelativeLayout nextbuttonCard = findViewById(R.id.nextbuttonCard);
@@ -125,9 +125,6 @@ public class ExamActivity extends AppCompatActivity {
 
         arrageUI(shemtxvevitiNumber); //ARRANGES UI WITH _id
         //questionId[0] = shemtxvevitiNumber;
-
-
-
 
 
         //CHECKING IF is exam mode or practice mode.

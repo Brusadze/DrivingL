@@ -232,7 +232,7 @@ public class MainActivity extends YouTubeBaseActivity{
     private void startWidthAnimation(){
         albatoba.setText("ჩაბარების ალბათობა არის " + Math.round((widthProgress * chaabarebsTuVera())/1000) + " %");
         ValueAnimator widthAnimator = ValueAnimator.ofInt(mwvaneLine.getWidth(), Math.round((widthProgress * chaabarebsTuVera())/100));
-        Log.d("PROCENT", String.valueOf(Math.round((widthProgress * chaabarebsTuVera())/1000)) + " es aris witlis sigrdzis 33 procenti");
+        Log.d("PROCENT", String.valueOf(Math.round((widthProgress * chaabarebsTuVera())/100)) + " es aris witlis sigrdzis 33 procenti");
         widthAnimator.setDuration(8000);
         widthAnimator.setInterpolator(new DecelerateInterpolator());
         widthAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {

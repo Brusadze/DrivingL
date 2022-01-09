@@ -215,6 +215,7 @@
                        android:textColor="@color/white"
                        android:textSize="18sp"
                        android:textStyle="bold" />
+
                    <TextView
                        android:layout_width="wrap_content"
                        android:layout_height="36dp"
@@ -456,8 +457,18 @@
            </LinearLayout>
        </androidx.core.widget.NestedScrollView>
 
-   </LinearLayout>
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:fontFamily="@font/medcap"
+               android:text="Fueled by Mycompany"
+               android:textAlignment="center"
+               android:textColor="#959a9e"
+               android:textSize="14sp"
+               android:textStyle="bold" />
 
+
+   </LinearLayout>
 
    <!-- <com.google.android.youtube.player.YouTubePlayerView
         android:id="@+id/youtube_player"

@@ -48,7 +48,7 @@ public class DBManager {
         String queryInsert = "INSERT INTO stats VALUES(null," + correctAnswers + "," + null + "," + null +"," + null + ")";
         database.execSQL(queryInsert);
     }
-    public void updateValues(int correctAnswers, int falseAnswers) {/*
+    public void updateValues(int correctAnswers, int id) {/*
         ContentValues contentValue = new ContentValues();
         contentValue.put(SampleSQLiteDBHelper.CORRECT_ANSWERS, correctAnswers);
         contentValue.put(SampleSQLiteDBHelper.INCORRECT_ANSWERS, falseAnswers);
@@ -61,7 +61,7 @@ public class DBManager {
         database.execSQL(queryInsert);*/
 
         String query = "UPDATE stats SET correctAnswers = correctAnswers + " + correctAnswers + "," +
-                "incorrectAnswers = incorrectAnswers + " + falseAnswers + " WHERE _id = 2" ;
+                        " WHERE _id = " + id;
 
         database.execSQL(query);
     }
