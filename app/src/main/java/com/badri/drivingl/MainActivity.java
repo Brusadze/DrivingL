@@ -29,6 +29,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +38,9 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+
+import org.eazegraph.lib.charts.PieChart;
+import org.eazegraph.lib.models.PieModel;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -64,6 +68,7 @@ public class MainActivity extends YouTubeBaseActivity{
     CardView cardViewOfProgress;
     examresults _examresults;
     LinearLayout userExamResultsLinear;
+
     int size;
     private DBManager dbManager;
 
@@ -97,6 +102,7 @@ public class MainActivity extends YouTubeBaseActivity{
         mesametxtProcent = findViewById(R.id.mesametxtProcent);
         albatoba = findViewById(R.id.albatoba);
 
+
         //COPYING DATABASE FROM ASSETS TO DATA/DATABASES/
         databaseCopy();
         //statsDatabaseCopy();
@@ -105,6 +111,7 @@ public class MainActivity extends YouTubeBaseActivity{
         dbManager.open();
 
         chaabarebsTuVera();
+        setPieChartData();
 
         //GETTING WIDTH AND HEIGHT OF CARDVIEW OF PROGRESS
         ViewTreeObserver vto = cardViewOfProgress.getViewTreeObserver();
@@ -123,13 +130,13 @@ public class MainActivity extends YouTubeBaseActivity{
             }
         });
 
-        profilePic.setOnClickListener(new View.OnClickListener() {
+      /*  profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, progress.class);
                 startActivity(intent);
             }
-        });
+        });*/
         thirdLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -434,6 +441,65 @@ public class MainActivity extends YouTubeBaseActivity{
             sworiarasworiText.setText(" სწორი პასუხი : " + sworiText + " არასწორი პასუხი : " + arasworiText);
             qvedaXaziColor.setBackgroundColor(Color.GREEN);
         }
+
+    }
+    void setPieChartData(){
+        TextView tvR = findViewById(R.id.tvR);
+        TextView tvPython = findViewById(R.id.tvPython);
+
+        PieChart pieChart = findViewById(R.id.piechart);
+
+        TextView statsfinished = findViewById(R.id.statsfinished);
+        String FILE_NAME = "statistics.txt";
+        String FILE_NAME2 = "statistics2.txt";
+
+        int loadStatsCorrect = 0;
+        int loadStatsFalse = 0;
+            try {
+                BufferedReader brTest = new BufferedReader(new FileReader(getFilesDir() + "/" + FILE_NAME));
+                BufferedReader brTest2 = new BufferedReader(new FileReader(getFilesDir() + "/" + FILE_NAME2));
+                loadStatsCorrect = Integer.parseInt(brTest.readLine());
+                loadStatsFalse = Integer.parseInt(brTest2.readLine());
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+            // Set the percentage of language used
+            tvR.setText(Integer.toString(loadStatsCorrect));
+            tvPython.setText(Integer.toString(loadStatsFalse));
+        /*tvCPP.setText(Integer.toString(5));
+        tvJava.setText(Integer.toString(25));*/
+
+            // Set the data and color to the pie chart
+            pieChart.addPieSlice(
+                    new PieModel(
+                            "სწორი პასუხები",
+                            Integer.parseInt(tvR.getText().toString()),
+                            Color.parseColor("#00ff00")));
+            pieChart.addPieSlice(
+                    new PieModel(
+                            "არასწორი პასუხები",
+                            Integer.parseInt(tvPython.getText().toString()),
+                            Color.parseColor("#ff0000")));
+            tvR.setText("სწორი პასუხები - " + loadStatsCorrect);
+            tvPython.setText("არასწორი პასუხები - " + loadStatsFalse);
+        /*pieChart.addPieSlice(
+                new PieModel(
+                        "C++",
+                        Integer.parseInt(tvCPP.getText().toString()),
+                        Color.parseColor("#EF5350")));
+        pieChart.addPieSlice(
+                new PieModel(
+                        "Java",
+                        Integer.parseInt(tvJava.getText().toString()),
+                        Color.parseColor("#29B6F6")));*/
+
+            // To animate the pie chart
+            pieChart.startAnimation();
 
     }
 

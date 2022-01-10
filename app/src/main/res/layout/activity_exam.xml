@@ -327,5 +327,40 @@
             android:layout_height="300dp">
         </VideoView>
     </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/finishLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgr">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/finishLayoutText"
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:fontFamily="@font/medcap"
+                android:text="შენ წარმატებით ჩააბარე გამოცდა"
+                android:textAlignment="center"
+                android:textColor="@color/white">
+            </TextView>
+            <TextView
+                android:layout_marginTop="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:fontFamily="@font/medcap"
+                android:text="მთავარ გვერდზე დაბრუნება"
+                android:textAlignment="center"
+                android:textColor="@color/purple_200">
+            </TextView>
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

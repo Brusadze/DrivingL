@@ -51,7 +51,7 @@ public class ExamActivity extends AppCompatActivity {
 
 
     TextView shekitxvatext,pasuxiErtiText,pasuxiOriText,pasuxiSamiText
-            ,pasuxiOtxiText,countdownTimerText,numberofbiletiText;
+            ,pasuxiOtxiText,countdownTimerText,numberofbiletiText,finishLayoutText;
     Button nextQuestionButton;
 
     Database database;
@@ -60,7 +60,7 @@ public class ExamActivity extends AppCompatActivity {
     DBManager dbManager;
     VideoView videoView;
     RelativeLayout relativeLayoutMesameQuest,relativeLayoutMeotxeQuest,
-            firstQuestionRelative,secondQuestionRelative , countAndTimerLayout, nextbuttonCard;
+            firstQuestionRelative,secondQuestionRelative , countAndTimerLayout, nextbuttonCard,finishLayout;
     ImageView imageQuestion;
     LinearLayout linearImageQuestion;
 
@@ -112,10 +112,12 @@ public class ExamActivity extends AppCompatActivity {
 
         RelativeLayout videoLinear =  findViewById(R.id.videoLinear);
         RelativeLayout nextbuttonCard = findViewById(R.id.nextbuttonCard);
+        finishLayout = findViewById(R.id.finishLayout);
+        finishLayoutText = findViewById(R.id.finishLayoutText);
         videoView = (VideoView) findViewById(R.id.videoView);
         videoView.setMediaController(null);
         LinearLayout linearView = findViewById(R.id.linearView);
-        videoView.setVideoPath("https://java106.000webhostapp.com/videoplayback.mp4");
+        videoView.setVideoPath("https://java106.000webhostapp.com/videoExample.mp4");
         linearView.setVisibility(View.GONE);
         videoLinear.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -143,8 +145,11 @@ public class ExamActivity extends AppCompatActivity {
         // LOAD switchMode 1 or 0 where 1 is [EXAM] and 0 is [PRACTICE]
         Log.d("switch", String.valueOf(switchMode));
 
+        finishLayout.setVisibility(View.GONE);
+
         arrageUI(shemtxvevitiNumber); //ARRANGES UI WITH _id
         //questionId[0] = shemtxvevitiNumber;
+
 
 
         //CHECKING IF is exam mode or practice mode.
@@ -187,13 +192,23 @@ public class ExamActivity extends AppCompatActivity {
 
                     }
                     if(textNumber > 30){
-                        Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
+                        /*Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
-                        startActivity(intent);
+                        startActivity(intent);*/
+                        if(sworiPasuxebiExamBolos >= 27){
+                            finishLayout.setVisibility(View.VISIBLE);
+                            finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
+                            finishLayoutText.setTextColor(Color.GREEN);
+                        }else {
+                            finishLayout.setVisibility(View.VISIBLE);
+                            finishLayoutText.setText("შენ ვერ ჩააბრე გამოცდა");
+                            finishLayoutText.setTextColor(Color.RED);
+                        }
+
                     }
                     getRandom();
                     arrageUI(shemtxvevitiNumber);
@@ -234,14 +249,23 @@ public class ExamActivity extends AppCompatActivity {
                         }
                     }
                     if(textNumber > 30){
-                        Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
+                       /* Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
                         dbManager.insertExamFinishData(sworiPasuxebiExamBolos);
-                        startActivity(intent);
+                        startActivity(intent);*/
+                        if(sworiPasuxebiExamBolos >= 27){
+                            finishLayout.setVisibility(View.VISIBLE);
+                            finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
+                            finishLayoutText.setTextColor(Color.GREEN);
+                        }else {
+                            finishLayout.setVisibility(View.VISIBLE);
+                            finishLayoutText.setText("შენ ვერ ჩააბრე გამოცდა");
+                            finishLayoutText.setTextColor(Color.RED);
+                        }
                     }
 
                     getRandom();
@@ -283,13 +307,22 @@ public class ExamActivity extends AppCompatActivity {
                         }
                     }
                     if(textNumber > 30){
-                        Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
+                        /*Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
-                        startActivity(intent);
+                        startActivity(intent);*/
+                        if(sworiPasuxebiExamBolos >= 27){
+                            finishLayout.setVisibility(View.VISIBLE);
+                            finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
+                            finishLayoutText.setTextColor(Color.GREEN);
+                        }else {
+                            finishLayout.setVisibility(View.VISIBLE);
+                            finishLayoutText.setText("შენ ვერ ჩააბრე გამოცდა");
+                            finishLayoutText.setTextColor(Color.RED);
+                        }
                     }
                     getRandom();
                     arrageUI(shemtxvevitiNumber);
@@ -330,15 +363,24 @@ public class ExamActivity extends AppCompatActivity {
                         }
                     }
                     if(textNumber > 30){
-                        Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
-                        /*intent.putIntegerArrayListExtra("questionId",questionId);
-                        intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);*/
+                       /* Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
+                        *//*intent.putIntegerArrayListExtra("questionId",questionId);
+                        intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);*//*
                         intent.putExtra("sworiPasuxebiExamBolos", sworiPasuxebiExamBolos);
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
 
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
 
-                        startActivity(intent);
+                        startActivity(intent);*/
+                        if(sworiPasuxebiExamBolos >= 27){
+                            finishLayout.setVisibility(View.VISIBLE);
+                            finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
+                            finishLayoutText.setTextColor(Color.GREEN);
+                        }else {
+                            finishLayout.setVisibility(View.VISIBLE);
+                            finishLayoutText.setText("შენ ვერ ჩააბრე გამოცდა");
+                            finishLayoutText.setTextColor(Color.RED);
+                        }
                     }
                     getRandom();
                     arrageUI(shemtxvevitiNumber);

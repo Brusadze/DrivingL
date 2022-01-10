@@ -22,14 +22,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class progress  extends AppCompatActivity {
+public class progress  extends MainActivity {
 
     TextView tvR, tvPython, tvCPP, tvJava , statsfinished;
     PieChart pieChart;
-
-
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_progress);
@@ -50,8 +46,6 @@ public class progress  extends AppCompatActivity {
 
 
     }
-
-
 
     public static final String FILE_NAME = "statistics.txt";
     public static final String FILE_NAME2 = "statistics2.txt";

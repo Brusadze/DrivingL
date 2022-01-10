@@ -36,8 +36,8 @@
                android:id="@+id/profilePic"
                android:layout_width="40dp"
                android:layout_height="40dp"
-               android:layout_marginTop="10dp"
                android:layout_alignParentRight="true"
+               android:layout_marginTop="10dp"
                android:src="@drawable/img_1"
                app:srcCompat="@drawable/profile" />
     </RelativeLayout>
@@ -206,6 +206,7 @@
                        android:layout_marginLeft="14dp"
                        android:layout_marginTop="12dp"
                        android:background="@drawable/timer"></ImageView>
+
                    <TextView
                        android:layout_width="110dp"
                        android:layout_height="36dp"
@@ -361,6 +362,83 @@
                    </RelativeLayout>
 
 
+               </LinearLayout>
+
+
+           </androidx.cardview.widget.CardView>
+
+           <androidx.cardview.widget.CardView
+               android:id="@+id/cardViewGraph"
+               android:layout_width="match_parent"
+               android:layout_height="150dp"
+               android:layout_marginLeft="10dp"
+               android:layout_marginRight="10dp"
+               android:elevation="20dp"
+               app:cardCornerRadius="7dp"
+               app:cardUseCompatPadding="true">
+
+
+               <!--Linear layout to display pie chart -->
+               <!-- and details of pie chart-->
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:background="@drawable/backgrbutt"
+                   android:orientation="horizontal"
+                   android:weightSum="2">
+
+                   <!--Pie chart to display the data-->
+
+                   <org.eazegraph.lib.charts.PieChart
+                       android:id="@+id/piechart"
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:layout_marginTop="15dp"
+                       android:layout_marginBottom="15dp"/>
+
+                   <!--Creating another linear layout -->
+                   <!-- to display pie chart details -->
+                   <LinearLayout
+                       android:layout_width="0dp"
+                       android:layout_height="match_parent"
+                       android:layout_weight="1"
+                       android:layout_marginLeft="0dp"
+                       android:orientation="vertical"
+                       android:gravity="center_vertical"
+                       >
+
+                       <TextView
+                           android:id="@+id/tvR"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/white"
+                           android:fontFamily="@font/medcap"
+                           android:text="სწორი პასუხები"
+                           >
+                       </TextView>
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_height="3dp"
+                           android:background="#00ff00"/>
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_height="30dp"
+                           android:background="@drawable/backgrbutt"/>
+                       <TextView
+                           android:id="@+id/tvPython"
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:textColor="@color/white"
+                           android:fontFamily="@font/medcap"
+                           android:text="არასწორი პასუხები"></TextView>
+                       <View
+                           android:layout_width="match_parent"
+                           android:layout_height="3dp"
+                           android:background="#ff0000"/>
+
+                   </LinearLayout>
                </LinearLayout>
 
 
