@@ -80,12 +80,13 @@
 
 
                    </View>
+
                    <ImageView
                        android:layout_width="30dp"
                        android:layout_height="30dp"
                        android:layout_marginLeft="14dp"
                        android:layout_marginTop="12dp"
-                       android:background="@drawable/timer"></ImageView>
+                       android:background="@drawable/practiceuibutt"></ImageView>
 
 
                    <TextView
@@ -200,12 +201,13 @@
                        android:layout_marginTop="0dp"
                        android:background="@drawable/backicons">
                    </View>
+
                    <ImageView
                        android:layout_width="30dp"
                        android:layout_height="30dp"
                        android:layout_marginLeft="14dp"
                        android:layout_marginTop="12dp"
-                       android:background="@drawable/timer"></ImageView>
+                       android:background="@drawable/biletebiicon"></ImageView>
 
                    <TextView
                        android:layout_width="110dp"

@@ -68,6 +68,7 @@ public class MainActivity extends YouTubeBaseActivity{
     CardView cardViewOfProgress;
     examresults _examresults;
     LinearLayout userExamResultsLinear;
+    PieChart pieChart;
 
     int size;
     private DBManager dbManager;
@@ -101,6 +102,7 @@ public class MainActivity extends YouTubeBaseActivity{
         meoretxtProcent = findViewById(R.id.meoretxtProcent);
         mesametxtProcent = findViewById(R.id.mesametxtProcent);
         albatoba = findViewById(R.id.albatoba);
+        pieChart = findViewById(R.id.piechart);
 
 
         //COPYING DATABASE FROM ASSETS TO DATA/DATABASES/
@@ -112,6 +114,8 @@ public class MainActivity extends YouTubeBaseActivity{
 
         chaabarebsTuVera();
         setPieChartData();
+        pieChart.setInnerPaddingColor(Color.parseColor("#25343d"));
+
 
         //GETTING WIDTH AND HEIGHT OF CARDVIEW OF PROGRESS
         ViewTreeObserver vto = cardViewOfProgress.getViewTreeObserver();
@@ -479,12 +483,12 @@ public class MainActivity extends YouTubeBaseActivity{
                     new PieModel(
                             "სწორი პასუხები",
                             Integer.parseInt(tvR.getText().toString()),
-                            Color.parseColor("#00ff00")));
+                            Color.parseColor("#2BFFAB")));
             pieChart.addPieSlice(
                     new PieModel(
                             "არასწორი პასუხები",
                             Integer.parseInt(tvPython.getText().toString()),
-                            Color.parseColor("#ff0000")));
+                            Color.parseColor("#E0183D")));
             tvR.setText("სწორი პასუხები - " + loadStatsCorrect);
             tvPython.setText("არასწორი პასუხები - " + loadStatsFalse);
         /*pieChart.addPieSlice(

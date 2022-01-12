@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -565,10 +566,16 @@ public class ExamActivity extends AppCompatActivity {
 
                 Log.d("ARRAY", Arrays.toString(myIntArray));
 
-                firstQuestionRelative.setBackgroundResource(R.drawable.pasuxi);
+                /*firstQuestionRelative.setBackgroundResource(R.drawable.pasuxi);
                 secondQuestionRelative.setBackgroundResource(R.drawable.pasuxi);
                 relativeLayoutMesameQuest.setBackgroundResource(R.drawable.pasuxi);
-                relativeLayoutMeotxeQuest.setBackgroundResource(R.drawable.pasuxi);
+                relativeLayoutMeotxeQuest.setBackgroundResource(R.drawable.pasuxi);*/
+
+                firstQuestionRelative.setBackgroundColor(Color.parseColor("#1f2c34"));
+                secondQuestionRelative.setBackgroundColor(Color.parseColor("#1f2c34"));
+                relativeLayoutMesameQuest.setBackgroundColor(Color.parseColor("#1f2c34"));
+                relativeLayoutMeotxeQuest.setBackgroundColor(Color.parseColor("#1f2c34"));
+
                 //textView6.setText(String.valueOf(textNumber));
                 getRandom();
                 arrageUI(shemtxvevitiNumber);
