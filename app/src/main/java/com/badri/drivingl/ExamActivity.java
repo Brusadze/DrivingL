@@ -52,7 +52,8 @@ public class ExamActivity extends AppCompatActivity {
 
 
     TextView shekitxvatext,pasuxiErtiText,pasuxiOriText,pasuxiSamiText
-            ,pasuxiOtxiText,countdownTimerText,numberofbiletiText,finishLayoutText;
+            ,pasuxiOtxiText,countdownTimerText,numberofbiletiText,finishLayoutText,
+            biletisAxsnaTexti;
     Button nextQuestionButton;
 
     Database database;
@@ -62,7 +63,7 @@ public class ExamActivity extends AppCompatActivity {
     VideoView videoView;
     RelativeLayout relativeLayoutMesameQuest,relativeLayoutMeotxeQuest,
             firstQuestionRelative,secondQuestionRelative , countAndTimerLayout, nextbuttonCard,finishLayout;
-    ImageView imageQuestion;
+    ImageView imageQuestion,infoBileti;
     LinearLayout linearImageQuestion;
 
     static int[] myIntArray = new int[30];
@@ -71,6 +72,8 @@ public class ExamActivity extends AppCompatActivity {
 
     public int sworiPasuxebiExamBolos = 0;
     boolean trueAnswer;
+
+    int onclickValueToClose = 1;
 
     private static final String FORMAT = "%02d:%02d:%02d";
     //ArrayList<String> id,question,answerOne,answerTwo,answerThree,answerFour,correctAnswer;
@@ -115,6 +118,8 @@ public class ExamActivity extends AppCompatActivity {
         RelativeLayout nextbuttonCard = findViewById(R.id.nextbuttonCard);
         finishLayout = findViewById(R.id.finishLayout);
         finishLayoutText = findViewById(R.id.finishLayoutText);
+        biletisAxsnaTexti = findViewById(R.id.biletisAxsnaTexti);
+        infoBileti = findViewById(R.id.infoBileti);
         videoView = (VideoView) findViewById(R.id.videoView);
         videoView.setMediaController(null);
         LinearLayout linearView = findViewById(R.id.linearView);
@@ -157,6 +162,7 @@ public class ExamActivity extends AppCompatActivity {
         if(switchMode == 1){
             //EXAM MODE
             startTimer();
+            infoBileti.setVisibility(View.GONE);
             nextbuttonCard.setVisibility(View.GONE);
             pasuxiErtiText.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -392,8 +398,22 @@ public class ExamActivity extends AppCompatActivity {
         }else if(switchMode == 0){
             //PRACTICE MODE
             //startTimer();
+
+            infoBileti.setVisibility(View.VISIBLE);
             countdownTimerText.setVisibility(View.GONE);
             nextbuttonCard.setVisibility(View.VISIBLE);
+            infoBileti.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    onclickValueToClose++;
+                    if(onclickValueToClose % 2 == 0){
+                        biletisAxsnaTexti.setVisibility(View.VISIBLE);
+                        biletisAxsnaTexti.setText(database.ganmartebaValue);
+                    }else if(onclickValueToClose % 2 != 0){
+                        biletisAxsnaTexti.setVisibility(View.GONE);
+                    }
+
+                }
+            });
             pasuxiErtiText.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     gacemuliPasuxi.add(pasuxiErtiText.getText().toString());
@@ -557,7 +577,7 @@ public class ExamActivity extends AppCompatActivity {
         nextQuestionButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 textNumber++; //counting untill 30
-
+                biletisAxsnaTexti.setVisibility(View.GONE);
                 if(trueAnswer)
                     myIntArray[textNumber - 2] = 1;
                 else if (!trueAnswer)

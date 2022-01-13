@@ -48,6 +48,30 @@
                         android:textSize="22sp"
                         android:textStyle="bold"></TextView>
 
+                    <ImageView
+                        android:id="@+id/infoBileti"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/infoofbilet"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginRight="15dp"
+                        >
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/biletisAxsnaTexti"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/medcap"
+                        android:text="ბილეთის ახსნა"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginTop="58dp">
+
+                    </TextView>
+
                 </RelativeLayout>
 
 
@@ -132,11 +156,11 @@
                                 android:id="@+id/pasuxiErtiText"
                                 android:layout_width="330dp"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/medcap"
                                 android:text="თეთრი ავტომობილის მძღოლი"
                                 android:textAlignment="textStart"
                                 android:textColor="@color/white"
                                 android:textSize="15sp"
-                                android:fontFamily="@font/medcap"
                                 android:textStyle="bold"></TextView>
                         </RelativeLayout>
 
@@ -327,6 +351,7 @@
             android:layout_height="300dp">
         </VideoView>
     </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/finishLayout"
         android:layout_width="match_parent"
