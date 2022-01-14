@@ -59,18 +59,7 @@
                         >
                     </ImageView>
 
-                    <TextView
-                        android:id="@+id/biletisAxsnaTexti"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/medcap"
-                        android:text="ბილეთის ახსნა"
-                        android:textAlignment="center"
-                        android:textColor="@color/white"
-                        android:textSize="15sp"
-                        android:layout_marginTop="58dp">
 
-                    </TextView>
 
                 </RelativeLayout>
 
@@ -352,40 +341,631 @@
         </VideoView>
     </LinearLayout>
 
-    <RelativeLayout
-        android:id="@+id/finishLayout"
+    <LinearLayout
+        android:id="@+id/gridFinishLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/backgr">
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        android:layout_centerHorizontal="true">
+        <GridLayout
+            android:layout_width="fill_parent"
+            android:layout_height="220dp"
+            android:footerDividersEnabled="false"
+            android:padding="0dp"
+            android:background="@drawable/backgr"
+            android:columnCount="7">
+            <TextView
+                android:id="@+id/bilet1text"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet2text"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet3text"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet4text"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet5text"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet6text"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="6"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet7text"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="7"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet8text"
+                android:layout_width="45dp"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet9text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="9"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet10text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet11text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="11"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet12text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="12"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet13text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="13"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet14text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="14"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet15text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="15"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet16text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="16"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet17text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="17"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet18text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="18"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet19text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="19"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/falseanswerui"/>
+            <TextView
+                android:id="@+id/bilet20text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="20"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/correcanswerui"/>
+            <TextView
+                android:id="@+id/bilet21text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="21"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet22text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="22"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet23text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="23"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet24text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="24"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet25text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="25"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet26text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="26"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet27text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="27"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet28text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="28"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet29text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="29"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+            <TextView
+                android:id="@+id/bilet30text"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:text="30"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:fontFamily="@font/medcap"
+                android:background="@drawable/pasuxi"/>
+
+        </GridLayout>
+        <RelativeLayout
+            android:id="@+id/finishLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_height="match_parent">
             <TextView
                 android:id="@+id/finishLayoutText"
-                android:layout_marginTop="50dp"
                 android:layout_width="match_parent"
-                android:layout_height="25dp"
+                android:layout_height="match_parent"
                 android:fontFamily="@font/medcap"
-                android:text="შენ წარმატებით ჩააბარე გამოცდა"
+                android:text="შენ ვერ ჩააბარე გამოცდა"
+                android:background="@drawable/backgr"
                 android:textAlignment="center"
-                android:textColor="@color/white">
-            </TextView>
-            <TextView
-                android:layout_marginTop="50dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"></TextView>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/linearExplanation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/biletisAxsnaTexti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/pasuxi"
+            android:fontFamily="@font/medcap"
+            android:text="ბილეთის ახსნა"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="10sp">
+        </TextView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/closeLinearAxsna"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/closeexplanation">
+            </ImageView>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewFINISH"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pasuxi"
+        android:layout_margin="15dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="5dp"
+
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false"
+            android:orientation="vertical">
+            <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="@android:color/transparent"
                 android:layout_width="match_parent"
-                android:layout_height="25dp"
-                android:fontFamily="@font/medcap"
-                android:text="მთავარ გვერდზე დაბრუნება"
-                android:textAlignment="center"
-                android:textColor="@color/purple_200">
-            </TextView>
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardElevation="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="0dp">
+                    <TextView
+                        android:id="@+id/daxurvaFinish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:textAlignment="center"
+                        android:text="დახურვა"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/medcap"
+                        android:textSize="15sp">
+                    </TextView>
+
+                    </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="0dp">
+
+                    <LinearLayout
+                        android:id="@+id/linearImageQuestionFINISH"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageQuestionFINISH"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:contentDescription="TODO"
+                            android:src="@drawable/bileti2"></ImageView>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/shekitxvatextFINISH"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="რომელი ავტომობილის მძღოლი დაარღვევს საგზაო მოძრაობის წესებს ისრის მიმართულებით მოძრაობის შემთხვევაში ?"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/medcap"
+                        android:textStyle="bold"></TextView>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:id="@+id/firstQuestionRelativeFINISH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pasuxi"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/pasuxiErtiTextFINISH"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/medcap"
+                        android:text="თეთრი ავტომობილის მძღოლი"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:textStyle="bold"></TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:id="@+id/secondQuestionRelativeFINISH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pasuxi"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/pasuxiOriTextFINISH"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:text="მწვანე ავტომობილის მძღოლი"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/medcap"
+                        android:textStyle="bold"></TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutMesameQuestFINISH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pasuxi"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/pasuxiSamiTextFINISH"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:text="შავი ავტომობილის მძღოლი"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/medcap"
+                        android:textStyle="bold"></TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardviewLastFINISH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayoutMeotxeQuestFINISH"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/pasuxi"
+                    android:gravity="center"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/pasuxiOtxiTextFINISH"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:text="არცერთი ავტომობილის მძღოლი"
+                        android:textAlignment="textStart"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/medcap"
+                        android:textSize="15sp"
+                        android:textStyle="bold"></TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+          <!--  <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/nextbuttonCardFINISH"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    >
+
+                    <Button
+                        android:id="@+id/nextQuestionButtonFINISH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="13dp"
+                        android:backgroundTint="#2cffab"
+                        android:text="შემდეგი"
+                        android:textColor="@color/white"></Button>
+
+                    <Button
+                        android:id="@+id/closeQuestionButtonFINISH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="13dp"
+                        android:backgroundTint="#FC2813"
+                        android:text="დახურვა"
+                        android:textColor="@color/white"></Button>
+
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView> -->
+
 
         </LinearLayout>
-
-
-
-    </RelativeLayout>
+    </ScrollView>
 
 </RelativeLayout>

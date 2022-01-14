@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionManager;
@@ -70,6 +72,8 @@ public class MainActivity extends YouTubeBaseActivity{
     LinearLayout userExamResultsLinear;
     PieChart pieChart;
 
+
+
     int size;
     private DBManager dbManager;
 
@@ -87,6 +91,9 @@ public class MainActivity extends YouTubeBaseActivity{
         setContentView(R.layout.activity_main);
         ImageView profilePic = findViewById(R.id.profilePic);
         prefs = getSharedPreferences("com.badri.drivingl", MODE_PRIVATE);
+
+
+
 
         nameSurname = findViewById(R.id.nameSurname);
         varjishiGamocda = findViewById(R.id.varjishiGamocda);
@@ -134,13 +141,13 @@ public class MainActivity extends YouTubeBaseActivity{
             }
         });
 
-      /*  profilePic.setOnClickListener(new View.OnClickListener() {
+       profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, progress.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(MainActivity.this, progress.class);
+                startActivity(intent);*/
             }
-        });*/
+        });
         thirdLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,7 +176,7 @@ public class MainActivity extends YouTubeBaseActivity{
         });
 
 
-        nameSurname.setText("გამარჯობა, ბადრი");
+        nameSurname.setText("გამარჯობა,");
         profilePic.setImageResource(R.drawable.profile);
 
         startCountAnimation(pirvelisTextProcent, 73);
@@ -217,6 +224,7 @@ public class MainActivity extends YouTubeBaseActivity{
 
 
     }
+
 
     private void startCountAnimation(TextView txtView , int _lastNum) {
         ValueAnimator animator = ValueAnimator.ofInt(0, _lastNum);

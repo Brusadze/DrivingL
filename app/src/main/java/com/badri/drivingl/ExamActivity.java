@@ -2,6 +2,7 @@ package com.badri.drivingl;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.VideoView;
 
@@ -53,22 +55,34 @@ public class ExamActivity extends AppCompatActivity {
 
     TextView shekitxvatext,pasuxiErtiText,pasuxiOriText,pasuxiSamiText
             ,pasuxiOtxiText,countdownTimerText,numberofbiletiText,finishLayoutText,
-            biletisAxsnaTexti;
-    Button nextQuestionButton;
+            biletisAxsnaTexti,shekitxvatextFINISH,pasuxiErtiTextFINISH,pasuxiOriTextFINISH,
+            pasuxiSamiTextFINISH,pasuxiOtxiTextFINISH,daxurvaFinish;
+    Button nextQuestionButton,nextQuestionButtonFINISH,closeQuestionButtonFINISH;
 
     Database database;
     //stats database
     Database databaseStats;
     DBManager dbManager;
+    ScrollView scrollViewFINISH;
     VideoView videoView;
     RelativeLayout relativeLayoutMesameQuest,relativeLayoutMeotxeQuest,
-            firstQuestionRelative,secondQuestionRelative , countAndTimerLayout, nextbuttonCard,finishLayout;
-    ImageView imageQuestion,infoBileti;
-    LinearLayout linearImageQuestion;
+            firstQuestionRelative,secondQuestionRelative , countAndTimerLayout, nextbuttonCard,finishLayout
+            ,firstQuestionRelativeFINISH,secondQuestionRelativeFINISH,relativeLayoutMesameQuestFINISH,
+            relativeLayoutMeotxeQuestFINISH;
+
+
+
+
+
+
+    ImageView imageQuestion,infoBileti,closeLinearAxsna,imageQuestionFINISH;
+    LinearLayout linearImageQuestion,linearExplanation,gridFinishLayout,linearImageQuestionFINISH;
 
     static int[] myIntArray = new int[30];
     private ArrayList<Integer> questionId = new ArrayList<Integer>();
     private ArrayList<String> gacemuliPasuxi = new ArrayList<String>();
+
+    private List<Integer> _idofBileti = new ArrayList<>();
 
     public int sworiPasuxebiExamBolos = 0;
     boolean trueAnswer;
@@ -114,12 +128,19 @@ public class ExamActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+
+
+
+
         RelativeLayout videoLinear =  findViewById(R.id.videoLinear);
         RelativeLayout nextbuttonCard = findViewById(R.id.nextbuttonCard);
         finishLayout = findViewById(R.id.finishLayout);
         finishLayoutText = findViewById(R.id.finishLayoutText);
         biletisAxsnaTexti = findViewById(R.id.biletisAxsnaTexti);
         infoBileti = findViewById(R.id.infoBileti);
+        closeLinearAxsna = findViewById(R.id.closeLinearAxsna);
+        linearExplanation = findViewById(R.id.linearExplanation);
+        gridFinishLayout = findViewById(R.id.gridFinishLayout);
         videoView = (VideoView) findViewById(R.id.videoView);
         videoView.setMediaController(null);
         LinearLayout linearView = findViewById(R.id.linearView);
@@ -162,10 +183,19 @@ public class ExamActivity extends AppCompatActivity {
         if(switchMode == 1){
             //EXAM MODE
             startTimer();
+
+            initializeExamEnvFinish();
+            scrollViewFINISH.setVisibility(View.GONE);
+
+            linearExplanation.setVisibility(View.GONE);
+            gridFinishLayout.setVisibility(View.GONE);
+            initializeGridButtons();
             infoBileti.setVisibility(View.GONE);
             nextbuttonCard.setVisibility(View.GONE);
             pasuxiErtiText.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("UseCompatLoadingForDrawables")
                 public void onClick(View v) {
+                    Log.d("idof" , String.valueOf(_idofBileti.get(0)));
                     //adding answer that we chose to the array for showing stats
                     //gacemuliPasuxi[textNumber - 1] = pasuxiErtiText.getText().toString();
                     gacemuliPasuxi.add(pasuxiErtiText.getText().toString());
@@ -176,6 +206,10 @@ public class ExamActivity extends AppCompatActivity {
                         correctAnswer = 1;
                         trueAnswer = true;
                         sworiPasuxebiExamBolos++;
+
+                        //GRID LAYOUT AFTER EXAM FINISHED
+                        textViewsList.get(textNumber - 1).setBackground(getResources().getDrawable(R.drawable.correcanswerui));
+
                         Log.d("CORRECTANSWER++",String.valueOf(correctAnswer));
                         countingBiletebi();
                         try {
@@ -188,6 +222,10 @@ public class ExamActivity extends AppCompatActivity {
                     else{
                         falseAnswer = 1;
                         trueAnswer = false;
+
+                        //GRID LAYOUT AFTER EXAM FINISHED
+                        textViewsList.get(textNumber - 1).setBackground(getResources().getDrawable(R.drawable.falseanswerui));
+
                         Log.d("FALSE++",String.valueOf(falseAnswer));
                         countingBiletebi();
                         try {
@@ -198,7 +236,7 @@ public class ExamActivity extends AppCompatActivity {
                         }
 
                     }
-                    if(textNumber > 30){
+                    if(textNumber > 3){
                         /*Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
@@ -206,6 +244,120 @@ public class ExamActivity extends AppCompatActivity {
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
                         startActivity(intent);*/
+                        gridFinishLayout.setVisibility(View.VISIBLE);
+
+                        bilet1text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                scrollViewFINISH.setVisibility(View.VISIBLE);
+                                database.getAnswers(_idofBileti.get(0));
+
+                                if(database.imageValue.equals("")){
+                                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                                }
+                                else{
+                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                                    imageQuestionFINISH.setImageResource(id);
+                                }
+
+                                shekitxvatextFINISH.setText(database.questionValue);
+                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                                if(database.answerThreeValue.isEmpty())
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                                }
+                                if(database.answerFourValue.isEmpty())
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                                }
+                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+                            }
+                        });
+
+                        bilet2text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                scrollViewFINISH.setVisibility(View.VISIBLE);
+                                database.getAnswers(_idofBileti.get(1));
+
+                                if(database.imageValue.equals("")){
+                                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                                }
+                                else{
+                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                                    imageQuestionFINISH.setImageResource(id);
+                                }
+
+                                shekitxvatextFINISH.setText(database.questionValue);
+                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                                if(database.answerThreeValue.isEmpty())
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                                }
+                                if(database.answerFourValue.isEmpty())
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                                }
+                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+                            }
+                        });
+
                         if(sworiPasuxebiExamBolos >= 27){
                             finishLayout.setVisibility(View.VISIBLE);
                             finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
@@ -222,6 +374,7 @@ public class ExamActivity extends AppCompatActivity {
                 }
             });
             pasuxiOriText.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("UseCompatLoadingForDrawables")
                 public void onClick(View v) {
 
                     //adding answer that we chose to the array for showing stats
@@ -235,6 +388,9 @@ public class ExamActivity extends AppCompatActivity {
                         correctAnswer = 1;
                         trueAnswer = true;
 
+                        //GRID LAYOUT AFTER EXAM FINISHED
+                        textViewsList.get(textNumber - 1).setBackground(getResources().getDrawable(R.drawable.correcanswerui));
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -246,6 +402,9 @@ public class ExamActivity extends AppCompatActivity {
                     else{
                         falseAnswer = 1;
                         trueAnswer = false;
+
+                        //GRID LAYOUT AFTER EXAM FINISHED
+                        textViewsList.get(textNumber - 1).setBackground(getResources().getDrawable(R.drawable.falseanswerui));
 
                         countingBiletebi();
                         try {
@@ -264,6 +423,118 @@ public class ExamActivity extends AppCompatActivity {
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
                         dbManager.insertExamFinishData(sworiPasuxebiExamBolos);
                         startActivity(intent);*/
+                        gridFinishLayout.setVisibility(View.VISIBLE);
+
+                        bilet1text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                scrollViewFINISH.setVisibility(View.VISIBLE);
+                                database.getAnswers(_idofBileti.get(0));
+
+                                if(database.imageValue.equals("")){
+                                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                                }
+                                else{
+                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                                    imageQuestionFINISH.setImageResource(id);
+                                }
+
+                                shekitxvatextFINISH.setText(database.questionValue);
+                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                                if(database.answerThreeValue.isEmpty())
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                                }
+                                if(database.answerFourValue.isEmpty())
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                                }
+                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+                            }
+                        });
+
+                        bilet2text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                scrollViewFINISH.setVisibility(View.VISIBLE);
+                                database.getAnswers(_idofBileti.get(1));
+
+                                if(database.imageValue.equals("")){
+                                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                                }
+                                else{
+                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                                    imageQuestionFINISH.setImageResource(id);
+                                }
+
+                                shekitxvatextFINISH.setText(database.questionValue);
+                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                                if(database.answerThreeValue.isEmpty())
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                                }
+                                if(database.answerFourValue.isEmpty())
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                                } if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+                            }
+                        });
                         if(sworiPasuxebiExamBolos >= 27){
                             finishLayout.setVisibility(View.VISIBLE);
                             finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
@@ -280,6 +551,7 @@ public class ExamActivity extends AppCompatActivity {
                 }
             });
             pasuxiSamiText.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("UseCompatLoadingForDrawables")
                 public void onClick(View v) {
 
                     //adding answer that we chose to the array for showing stats
@@ -293,6 +565,9 @@ public class ExamActivity extends AppCompatActivity {
                         correctAnswer = 1;
                         trueAnswer = true;
 
+                        //GRID LAYOUT AFTER EXAM FINISHED
+                        textViewsList.get(textNumber - 1).setBackground(getResources().getDrawable(R.drawable.correcanswerui));
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -305,6 +580,9 @@ public class ExamActivity extends AppCompatActivity {
                         falseAnswer = 1;
                         trueAnswer = false;
 
+                        //GRID LAYOUT AFTER EXAM FINISHED
+                        textViewsList.get(textNumber - 1).setBackground(getResources().getDrawable(R.drawable.falseanswerui));
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -314,6 +592,119 @@ public class ExamActivity extends AppCompatActivity {
                         }
                     }
                     if(textNumber > 30){
+                        gridFinishLayout.setVisibility(View.VISIBLE);
+
+                        bilet1text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                scrollViewFINISH.setVisibility(View.VISIBLE);
+                                database.getAnswers(_idofBileti.get(0));
+
+                                if(database.imageValue.equals("")){
+                                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                                }
+                                else{
+                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                                    imageQuestionFINISH.setImageResource(id);
+                                }
+
+                                shekitxvatextFINISH.setText(database.questionValue);
+                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                                if(database.answerThreeValue.isEmpty())
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                                }
+                                if(database.answerFourValue.isEmpty())
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                                }
+                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+                            }
+                        });
+
+                        bilet2text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                scrollViewFINISH.setVisibility(View.VISIBLE);
+                                database.getAnswers(_idofBileti.get(1));
+
+                                if(database.imageValue.equals("")){
+                                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                                }
+                                else{
+                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                                    imageQuestionFINISH.setImageResource(id);
+                                }
+
+                                shekitxvatextFINISH.setText(database.questionValue);
+                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                                if(database.answerThreeValue.isEmpty())
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                                }
+                                if(database.answerFourValue.isEmpty())
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                                }
+                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+                            }
+                        });
                         /*Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
@@ -336,6 +727,7 @@ public class ExamActivity extends AppCompatActivity {
                 }
             });
             pasuxiOtxiText.setOnClickListener(new View.OnClickListener() {
+                @SuppressLint("UseCompatLoadingForDrawables")
                 public void onClick(View v) {
 
                     //adding answer that we chose to the array for showing stats
@@ -349,6 +741,9 @@ public class ExamActivity extends AppCompatActivity {
                         correctAnswer = 1;
                         trueAnswer = true;
 
+                        //GRID LAYOUT AFTER EXAM FINISHED
+                        textViewsList.get(textNumber - 1).setBackground(getResources().getDrawable(R.drawable.correcanswerui));
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -361,6 +756,9 @@ public class ExamActivity extends AppCompatActivity {
                         falseAnswer = 1;
                         trueAnswer = false;
 
+                        //GRID LAYOUT AFTER EXAM FINISHED
+                        textViewsList.get(textNumber - 1).setBackground(getResources().getDrawable(R.drawable.falseanswerui));
+
                         countingBiletebi();
                         try {
                             saveNewStats();
@@ -370,6 +768,119 @@ public class ExamActivity extends AppCompatActivity {
                         }
                     }
                     if(textNumber > 30){
+                        gridFinishLayout.setVisibility(View.VISIBLE);
+
+                        bilet1text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                scrollViewFINISH.setVisibility(View.VISIBLE);
+                                database.getAnswers(_idofBileti.get(0));
+
+                                if(database.imageValue.equals("")){
+                                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                                }
+                                else{
+                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                                    imageQuestionFINISH.setImageResource(id);
+                                }
+
+                                shekitxvatextFINISH.setText(database.questionValue);
+                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                                if(database.answerThreeValue.isEmpty())
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                                }
+                                if(database.answerFourValue.isEmpty())
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                                }
+
+                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+                            }
+                        });
+
+                        bilet2text.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                scrollViewFINISH.setVisibility(View.VISIBLE);
+                                database.getAnswers(_idofBileti.get(1));
+
+                                if(database.imageValue.equals("")){
+                                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                                }
+                                else{
+                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                                    imageQuestionFINISH.setImageResource(id);
+                                }
+
+                                shekitxvatextFINISH.setText(database.questionValue);
+                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                                if(database.answerThreeValue.isEmpty())
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                                }
+                                if(database.answerFourValue.isEmpty())
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                                else{
+                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                                }
+                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                                else
+                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+                            }
+                        });
                        /* Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         *//*intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);*//*
@@ -379,6 +890,7 @@ public class ExamActivity extends AppCompatActivity {
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
 
                         startActivity(intent);*/
+
                         if(sworiPasuxebiExamBolos >= 27){
                             finishLayout.setVisibility(View.VISIBLE);
                             finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
@@ -398,20 +910,21 @@ public class ExamActivity extends AppCompatActivity {
         }else if(switchMode == 0){
             //PRACTICE MODE
             //startTimer();
+            gridFinishLayout.setVisibility(View.GONE);
+            closeLinearAxsna.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    linearExplanation.setVisibility(View.GONE);
+                }
+            });
 
             infoBileti.setVisibility(View.VISIBLE);
+            linearExplanation.setVisibility(View.GONE);
             countdownTimerText.setVisibility(View.GONE);
             nextbuttonCard.setVisibility(View.VISIBLE);
             infoBileti.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    onclickValueToClose++;
-                    if(onclickValueToClose % 2 == 0){
-                        biletisAxsnaTexti.setVisibility(View.VISIBLE);
-                        biletisAxsnaTexti.setText(database.ganmartebaValue);
-                    }else if(onclickValueToClose % 2 != 0){
-                        biletisAxsnaTexti.setVisibility(View.GONE);
-                    }
-
+                       linearExplanation.setVisibility(View.VISIBLE);
+                       biletisAxsnaTexti.setText(database.ganmartebaValue);
                 }
             });
             pasuxiErtiText.setOnClickListener(new View.OnClickListener() {
@@ -577,7 +1090,7 @@ public class ExamActivity extends AppCompatActivity {
         nextQuestionButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 textNumber++; //counting untill 30
-                biletisAxsnaTexti.setVisibility(View.GONE);
+                linearExplanation.setVisibility(View.GONE);
                 if(trueAnswer)
                     myIntArray[textNumber - 2] = 1;
                 else if (!trueAnswer)
@@ -664,6 +1177,35 @@ public class ExamActivity extends AppCompatActivity {
         if(textNumber == 30){
             numberofbiletiText.setTextColor(Color.GREEN);
         }
+    }
+    void initializeExamEnvFinish(){
+        scrollViewFINISH = findViewById(R.id.scrollViewFINISH);
+        firstQuestionRelativeFINISH = findViewById(R.id.firstQuestionRelativeFINISH);
+        secondQuestionRelativeFINISH = findViewById(R.id.secondQuestionRelativeFINISH);
+        relativeLayoutMesameQuestFINISH = findViewById(R.id.relativeLayoutMesameQuestFINISH);
+        relativeLayoutMeotxeQuestFINISH = findViewById(R.id.relativeLayoutMeotxeQuestFINISH);
+        // nextQuestionButtonFINISH = findViewById(R.id.nextQuestionButtonFINISH);
+        // closeQuestionButtonFINISH = findViewById(R.id.closeQuestionButtonFINISH);
+        shekitxvatextFINISH = findViewById(R.id.shekitxvatextFINISH);
+        pasuxiErtiTextFINISH = findViewById(R.id.pasuxiErtiTextFINISH);
+        pasuxiOriTextFINISH = findViewById(R.id.pasuxiOriTextFINISH);
+        pasuxiSamiTextFINISH = findViewById(R.id.pasuxiSamiTextFINISH);
+        pasuxiOtxiTextFINISH = findViewById(R.id.pasuxiOtxiTextFINISH);
+        firstQuestionRelativeFINISH = findViewById(R.id.firstQuestionRelativeFINISH);
+        secondQuestionRelativeFINISH = findViewById(R.id.secondQuestionRelativeFINISH);
+        relativeLayoutMesameQuestFINISH = findViewById(R.id.relativeLayoutMesameQuestFINISH);
+        relativeLayoutMeotxeQuestFINISH = findViewById(R.id.relativeLayoutMeotxeQuestFINISH);
+        linearImageQuestionFINISH = findViewById(R.id.linearImageQuestionFINISH);
+        imageQuestionFINISH = findViewById(R.id.imageQuestionFINISH);
+        daxurvaFinish = findViewById(R.id.daxurvaFinish);
+
+        daxurvaFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.GONE);
+            }
+        });
+
     }
     void initializeEnvironment() {
         numberofbiletiText = (TextView) findViewById(R.id.numberofbiletiText);
@@ -783,8 +1325,86 @@ public class ExamActivity extends AppCompatActivity {
             }
         }
     }
+
+    TextView bilet1text,bilet2text,bilet3text,bilet4text,bilet5text,bilet6text
+            ,bilet7text,bilet8text,bilet9text,bilet10text,bilet11text,bilet12text,bilet13text
+            ,bilet14text,bilet15text,bilet16text,bilet17text,bilet18text,bilet19text,bilet20text,
+            bilet21text,bilet22text,bilet23text,bilet24text,bilet25text,bilet26text,bilet27text,bilet28text
+            ,bilet29text,bilet30text;
+    List<TextView> textViewsList = new ArrayList<>();
+
+    private void initializeGridButtons(){
+         bilet1text = findViewById(R.id.bilet1text);
+         bilet2text = findViewById(R.id.bilet2text);
+         bilet3text = findViewById(R.id.bilet3text);
+         bilet4text = findViewById(R.id.bilet4text);
+         bilet5text = findViewById(R.id.bilet5text);
+         bilet6text = findViewById(R.id.bilet6text);
+         bilet7text = findViewById(R.id.bilet7text);
+         bilet8text = findViewById(R.id.bilet8text);
+         bilet9text = findViewById(R.id.bilet9text);
+         bilet10text = findViewById(R.id.bilet10text);
+        bilet11text = findViewById(R.id.bilet11text);
+        bilet12text = findViewById(R.id.bilet12text);
+        bilet13text = findViewById(R.id.bilet13text);
+        bilet14text = findViewById(R.id.bilet14text);
+        bilet15text = findViewById(R.id.bilet15text);
+        bilet16text = findViewById(R.id.bilet16text);
+        bilet17text = findViewById(R.id.bilet17text);
+        bilet18text = findViewById(R.id.bilet18text);
+        bilet19text = findViewById(R.id.bilet19text);
+        bilet20text = findViewById(R.id.bilet20text);
+        bilet21text = findViewById(R.id.bilet21text);
+        bilet22text = findViewById(R.id.bilet22text);
+        bilet23text = findViewById(R.id.bilet23text);
+        bilet24text = findViewById(R.id.bilet24text);
+        bilet25text = findViewById(R.id.bilet25text);
+        bilet26text = findViewById(R.id.bilet26text);
+        bilet27text = findViewById(R.id.bilet27text);
+        bilet28text = findViewById(R.id.bilet28text);
+        bilet29text = findViewById(R.id.bilet29text);
+        bilet30text = findViewById(R.id.bilet30text);
+
+         textViewsList.add(bilet1text);
+         textViewsList.add(bilet2text);
+         textViewsList.add(bilet3text);
+         textViewsList.add(bilet4text);
+         textViewsList.add(bilet5text);
+         textViewsList.add(bilet6text);
+         textViewsList.add(bilet7text);
+         textViewsList.add(bilet8text);
+         textViewsList.add(bilet9text);
+         textViewsList.add(bilet10text);
+        textViewsList.add(bilet11text);
+        textViewsList.add(bilet12text);
+        textViewsList.add(bilet13text);
+        textViewsList.add(bilet14text);
+        textViewsList.add(bilet15text);
+        textViewsList.add(bilet16text);
+        textViewsList.add(bilet17text);
+        textViewsList.add(bilet18text);
+        textViewsList.add(bilet19text);
+        textViewsList.add(bilet20text);
+        textViewsList.add(bilet21text);
+        textViewsList.add(bilet22text);
+        textViewsList.add(bilet23text);
+        textViewsList.add(bilet24text);
+        textViewsList.add(bilet25text);
+        textViewsList.add(bilet26text);
+        textViewsList.add(bilet27text);
+        textViewsList.add(bilet28text);
+        textViewsList.add(bilet29text);
+        textViewsList.add(bilet30text);
+
+
+
+    }
     private void arrageUI(int i){
         //database.getQuestion(i);
+
+        //ADDING VALUES FOR EXAMFINISH LAYOUT ONCLICKS
+        _idofBileti.add(i);
+
         database.getAnswers(i);
       Log.v("DATABASE VALUES",database.questionValue + " @@ " +
               database.answerOneValue + " @@ " +
