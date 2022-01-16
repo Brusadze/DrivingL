@@ -26,7 +26,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
@@ -43,9 +43,9 @@
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
-                        android:text="1"
+                        android:layout_centerVertical="true"
                         android:fontFamily="@font/medcap"
+                        android:text="1"
                         android:textColor="@color/white"
                         android:textSize="30dp"
                         android:textStyle="bold">
@@ -53,10 +53,11 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/bileti1"
                         android:layout_width="330dp"
                         android:layout_height="40dp"
+                        android:layout_centerVertical="true"
                         android:layout_marginLeft="28dp"
-                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/medcap"
                         android:text="მძღოლი, მგზავრი და ქვეითი, ნიშნები, კონვეცია"
                         android:textColor="@color/white"
@@ -70,7 +71,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
@@ -87,35 +88,35 @@
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
                         android:text="2"
                         android:textColor="@color/white"
                         android:textSize="30dp"
-                        android:fontFamily="@font/medcap"
                         android:textStyle="bold">
-
 
                     </TextView>
 
                     <TextView
+                        android:id="@+id/bileti2"
                         android:layout_width="330dp"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="28dp"
-                        android:layout_marginTop="18dp"
-                        android:text="უწესივრობა და მართვის პირობები"
-                        android:textAlignment="textStart"
-                        android:textColor="@color/white"
+                        android:layout_centerVertical="true"
                         android:fontFamily="@font/medcap"
+                        android:text="უწესივრობა და მართვის პირობები"
+                        android:textColor="@color/white"
                         android:textSize="15dp"
                         android:textStyle="bold">
 
                     </TextView>
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
@@ -132,32 +133,35 @@
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_centerVertical="true"
                         android:text="3"
+                        android:fontFamily="@font/medcap"
                         android:textColor="@color/white"
                         android:textSize="30dp"
-                        android:fontFamily="@font/medcap"
                         android:textStyle="bold">
 
                     </TextView>
 
                     <TextView
+                        android:id="@+id/bileti3"
                         android:layout_width="330dp"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="28dp"
-                        android:layout_marginTop="18dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
                         android:text="მაფრთხილებელი ნიშნები"
                         android:textColor="@color/white"
                         android:textSize="15dp"
-                        android:fontFamily="@font/medcap"
                         android:textStyle="bold">
 
                     </TextView>
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
@@ -174,32 +178,34 @@
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
-                        android:text="1"
+                        android:layout_centerVertical="true"
+                        android:text="4"
+                        android:fontFamily="@font/medcap"
                         android:textColor="@color/white"
                         android:textSize="30dp"
-                        android:fontFamily="@font/medcap"
                         android:textStyle="bold">
 
                     </TextView>
 
                     <TextView
+                        android:id="@+id/bileti4"
                         android:layout_width="330dp"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="10dp"
-                        android:text="მძღოლი, მგზავრი და ქვეითი, ნიშნები, კონვეცია"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
+                        android:fontFamily="@font/medcap"
+                        android:text="პრიორიტეტის ნიშნები"
                         android:textColor="@color/white"
                         android:textSize="15dp"
-                        android:fontFamily="@font/medcap"
                         android:textStyle="bold">
 
                     </TextView>
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
@@ -216,32 +222,34 @@
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
-                        android:text="1"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="5"
                         android:textColor="@color/white"
                         android:textSize="30dp"
-                        android:fontFamily="@font/medcap"
                         android:textStyle="bold">
 
                     </TextView>
 
                     <TextView
+                        android:id="@+id/bileti5"
                         android:layout_width="330dp"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="10dp"
-                        android:text="მძღოლი, მგზავრი და ქვეითი, ნიშნები, კონვეცია"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
+                        android:fontFamily="@font/medcap"
+                        android:text="ამკრძალავი ნიშნები"
                         android:textColor="@color/white"
                         android:textSize="15dp"
-                        android:fontFamily="@font/medcap"
                         android:textStyle="bold">
 
                     </TextView>
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
@@ -258,8 +266,8 @@
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
-                        android:text="1"
+                        android:layout_centerVertical="true"
+                        android:text="6"
                         android:fontFamily="@font/medcap"
                         android:textColor="@color/white"
                         android:textSize="30dp"
@@ -268,22 +276,24 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/bileti6"
                         android:layout_width="330dp"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="10dp"
-                        android:text="მძღოლი, მგზავრი და ქვეითი, ნიშნები, კონვეცია"
-                        android:textColor="@color/white"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_centerVertical="true"
                         android:fontFamily="@font/medcap"
+                        android:text="მიმთითებელი ნიშნები"
+                        android:textColor="@color/white"
                         android:textSize="15dp"
                         android:textStyle="bold">
 
                     </TextView>
                 </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="12dp"
@@ -300,8 +310,8 @@
                     <TextView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:layout_marginTop="10dp"
-                        android:text="1"
+                        android:layout_centerVertical="true"
+                        android:text="7"
                         android:fontFamily="@font/medcap"
                         android:textColor="@color/white"
                         android:textSize="30dp"
@@ -310,32 +320,1128 @@
                     </TextView>
 
                     <TextView
+                        android:id="@+id/bileti7"
                         android:layout_width="330dp"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="25dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="28dp"
                         android:fontFamily="@font/medcap"
-                        android:text="მძღოლი, მგზავრი და ქვეითი, ნიშნები, კონვეცია"
+                        android:text="საინფორმაციო-მაჩვენებელი ნიშნები"
                         android:textColor="@color/white"
                         android:textSize="15dp"
                         android:textStyle="bold">
 
                     </TextView>
                 </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="8"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti8"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="სერვისის ნიშნები"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="9"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti9"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="28dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="დამატებითი ინფორმაციის ნიშნები"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="10"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti10"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="შუქნიშნის სიგნალები"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="11"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti11"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="მარეგულირებლის სიგნალები"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="12"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti12"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="სპეციალური სიგნალის გამოყენება"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="13"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti13"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="საავარიო შუქური სიგნალიზაცია"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="14"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti14"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="სანათი ხელსაწყოები, ხმოვანი სიგნალი"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="15"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti15"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="მოძრაობა, მანევრირება, სავალი ნაწილი"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="16"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti16"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="გასწრება შემხვედრის გვერდის ავლით"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="17"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti17"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="მოძრაობის სიჩქარე"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="18"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti18"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="სამუხრუჭე მანძილი, დისტანცია"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="19"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti19"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="გაჩერება დგომა"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="20"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti20"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="გზაჯვარედინის გავლა"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="21"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti21"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="რკინიგზის გადასასვლელი"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="22"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti22"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="მოძრაობა ავტომაგისტრალზე"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="23"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti23"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="საცხოვრებელი ზონა, სამარშრუტოს პრიორიტეტი"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="24"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti24"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="ბუქსირება"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="25"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti25"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="სასწავლო სვლა"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="26"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti26"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="გადაზიდვები, ხალხი, ტვირთი"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="27"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti27"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="ველოსიპედი, მოპედი და პირუტყვის გადარეკვა"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="28"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti28"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="საგზაო მონიშვნა"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="29"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti29"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="სამედიცინო დახმარება"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="30"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti30"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="მოძრაობის უსაფრთხოება"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="31"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti31"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="ადმინისტრაციული კანონი"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="6dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/pasuxi"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="32"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/bileti32"
+                        android:layout_width="330dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="42dp"
+                        android:layout_centerVertical="true"
+                        android:fontFamily="@font/medcap"
+                        android:text="ეკო-მართვა"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        android:textStyle="bold">
+
+                    </TextView>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
 
 
         </LinearLayout>
 
     </LinearLayout>
-
-    <!-- <com.google.android.youtube.player.YouTubePlayerView
-         android:id="@+id/youtube_player"
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:background="#000" />-->
 
 
 </ScrollView>

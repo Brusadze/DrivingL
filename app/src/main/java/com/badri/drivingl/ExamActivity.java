@@ -35,6 +35,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -120,7 +121,6 @@ public class ExamActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        addDataToTextFile();
 
         try {
             readDataFromTextFile();
@@ -136,6 +136,10 @@ public class ExamActivity extends AppCompatActivity {
         RelativeLayout nextbuttonCard = findViewById(R.id.nextbuttonCard);
         finishLayout = findViewById(R.id.finishLayout);
         finishLayoutText = findViewById(R.id.finishLayoutText);
+
+        scrollViewFINISH = findViewById(R.id.scrollViewFINISH);
+        scrollViewFINISH.setVisibility(View.GONE);
+
         biletisAxsnaTexti = findViewById(R.id.biletisAxsnaTexti);
         infoBileti = findViewById(R.id.infoBileti);
         closeLinearAxsna = findViewById(R.id.closeLinearAxsna);
@@ -236,7 +240,7 @@ public class ExamActivity extends AppCompatActivity {
                         }
 
                     }
-                    if(textNumber > 3){
+                    if(textNumber > 30){
                         /*Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
@@ -244,6 +248,7 @@ public class ExamActivity extends AppCompatActivity {
                         //intent.putExtra("gacemuliPasuxi", gacemuliPasuxi);
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
                         startActivity(intent);*/
+                        addDataToTextFile(sworiPasuxebiExamBolos);
                         gridFinishLayout.setVisibility(View.VISIBLE);
 
                         bilet1text.setOnClickListener(new View.OnClickListener() {
@@ -423,6 +428,7 @@ public class ExamActivity extends AppCompatActivity {
                         //ADD VALUE TO STATS DATABASE FOR SCROLLVIEWS
                         dbManager.insertExamFinishData(sworiPasuxebiExamBolos);
                         startActivity(intent);*/
+                        addDataToTextFile(sworiPasuxebiExamBolos);
                         gridFinishLayout.setVisibility(View.VISIBLE);
 
                         bilet1text.setOnClickListener(new View.OnClickListener() {
@@ -592,6 +598,7 @@ public class ExamActivity extends AppCompatActivity {
                         }
                     }
                     if(textNumber > 30){
+                        addDataToTextFile(sworiPasuxebiExamBolos);
                         gridFinishLayout.setVisibility(View.VISIBLE);
 
                         bilet1text.setOnClickListener(new View.OnClickListener() {
@@ -768,6 +775,7 @@ public class ExamActivity extends AppCompatActivity {
                         }
                     }
                     if(textNumber > 30){
+                        addDataToTextFile(sworiPasuxebiExamBolos);
                         gridFinishLayout.setVisibility(View.VISIBLE);
 
                         bilet1text.setOnClickListener(new View.OnClickListener() {
@@ -911,6 +919,7 @@ public class ExamActivity extends AppCompatActivity {
             //PRACTICE MODE
             //startTimer();
             gridFinishLayout.setVisibility(View.GONE);
+
             closeLinearAxsna.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     linearExplanation.setVisibility(View.GONE);
@@ -1091,7 +1100,7 @@ public class ExamActivity extends AppCompatActivity {
             public void onClick(View v) {
                 textNumber++; //counting untill 30
                 linearExplanation.setVisibility(View.GONE);
-                if(trueAnswer)
+                /*if(trueAnswer)
                     myIntArray[textNumber - 2] = 1;
                 else if (!trueAnswer)
                     myIntArray[textNumber - 2] = 0;
@@ -1099,11 +1108,11 @@ public class ExamActivity extends AppCompatActivity {
 
                 Log.d("ARRAY", Arrays.toString(myIntArray));
 
-                /*firstQuestionRelative.setBackgroundResource(R.drawable.pasuxi);
+                *//*firstQuestionRelative.setBackgroundResource(R.drawable.pasuxi);
                 secondQuestionRelative.setBackgroundResource(R.drawable.pasuxi);
                 relativeLayoutMesameQuest.setBackgroundResource(R.drawable.pasuxi);
-                relativeLayoutMeotxeQuest.setBackgroundResource(R.drawable.pasuxi);*/
-
+                relativeLayoutMeotxeQuest.setBackgroundResource(R.drawable.pasuxi);*//*
+*/
                 firstQuestionRelative.setBackgroundColor(Color.parseColor("#1f2c34"));
                 secondQuestionRelative.setBackgroundColor(Color.parseColor("#1f2c34"));
                 relativeLayoutMesameQuest.setBackgroundColor(Color.parseColor("#1f2c34"));
@@ -1119,9 +1128,9 @@ public class ExamActivity extends AppCompatActivity {
 
                 Log.d("ARRAY", String.valueOf(questionId));
                 numberofbiletiText.setText(String.valueOf(textNumber) + " / 30");
-                if(textNumber == 30){
+                /*if(textNumber == 30){
                     numberofbiletiText.setTextColor(Color.GREEN);
-                }
+                }*/
 
             }
         });
@@ -1241,29 +1250,36 @@ public class ExamActivity extends AppCompatActivity {
 
 
 
-    private String fileSaxeli = "examResultsTextFile.txt";
+    private String fileSaxeli = "examResultTextFile.txt";
     private File file;
+
     private void createTextFileForResults() throws IOException {
         file = new File(getFilesDir() + "/" + fileSaxeli);
+        file.createNewFile(); // if file already exists will do nothing
     }
-    private void addDataToTextFile(){
+    private void addDataToTextFile(int corrects){
         if(file.exists()){
             //Toast.makeText(this,"FILE EXISTS",Toast.LENGTH_LONG).show();
             Log.v("EXISTS",getFilesDir() + "/" + fileSaxeli);
-        }
-        else {
-            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(getFilesDir() + "/" + fileSaxeli), StandardCharsets.UTF_8))) {
-                writer.write("bb" + "\n");
-                writer.write("bb" + "\n");
-                writer.write("bb" + "\n");
-                writer.write("bb" + "\n");
-                writer.write("bb" + "\n");
-                writer.write("5" + "\n");
-
+            FileWriter fw = null; //the true will append the new data
+            try {
+                fw = new FileWriter(getFilesDir() + "/" + fileSaxeli,true);
+                fw.write(corrects + "\n");//appends the string to the file
+                fw.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            /*try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(getFilesDir() + "/" + fileSaxeli), StandardCharsets.UTF_8))) {
+                writer.write(corrects + "\n");
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
+        }
+        else {
+            Log.v("NOTEXISTS",getFilesDir() + "/" + fileSaxeli);
         }
     }
     private void readDataFromTextFile() throws IOException {
@@ -1278,7 +1294,7 @@ public class ExamActivity extends AppCompatActivity {
             // Print the content on the console
             listStrings.add(strLine);
         }
-        Log.d("readFrom" , String.valueOf(listStrings.get(5)));
+        Log.d("readFrom" , String.valueOf(listStrings));
 //Close the input stream
         fstream.close();
     }

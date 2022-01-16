@@ -104,5 +104,28 @@ public class Database {
             //handle
         }
     }
+    public void getAnswersBiletebistvis(int id){
+        try{
+            String s = String.valueOf(id);
+            String query ="SELECT answerOne,answerTwo,answerThree,answerFour,correctANSWER,imageView,ganmarteba,question FROM exams " + "WHERE _id = " + s;
+            Cursor cursor = database.rawQuery(query, null);
+            if (cursor.moveToFirst()){
+                do{
+                    answerOneValue = cursor.getString(0);
+                    answerTwoValue = cursor.getString(1);
+                    answerThreeValue = cursor.getString(2);
+                    answerFourValue = cursor.getString(3);
+                    correctAnswerValue = cursor.getString(4);
+                    imageValue = cursor.getString(5);
+                    ganmartebaValue = cursor.getString(6);
+                    questionValue = cursor.getString(7);
+                    Log.d("db", answerOneValue + answerTwoValue + answerThreeValue + answerFourValue);
+                }while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (SQLException e) {
+            //handle
+        }
+    }
 }
 

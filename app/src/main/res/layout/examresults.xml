@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
-    android:background="#25343d">
+    android:layout_height="45dp"
+    android:background="@drawable/pasuxi2">
 
         <TextView
+            android:padding="3dp"
+            android:layout_marginLeft="5dp"
             android:id="@+id/testresultText"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
@@ -16,6 +18,8 @@
             android:textSize="12sp" />
 
         <TextView
+            android:padding="3dp"
+            android:layout_marginLeft="7dp"
             android:id="@+id/sworiarasworiText"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
@@ -25,13 +29,16 @@
             android:textAlignment="textStart"
             android:textColor="@color/white"
             android:textSize="8sp" />
+
         <View
             android:id="@+id/qvedaXaziColor"
-            android:layout_width="match_parent"
-            android:layout_height="4dp"
+            android:layout_width="4dp"
+            android:layout_height="43dp"
             android:background="@color/white"
-            android:layout_alignParentBottom="true">
-
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:layout_alignParentEnd="true">
         </View>
+
 
 </RelativeLayout>

@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -57,6 +58,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -65,7 +68,7 @@ public class MainActivity extends YouTubeBaseActivity{
     private static String videoId;
     YouTubePlayer.OnInitializedListener mOnInitializedListener;
     TextView nameSurname , varjishiGamocda, pirvelisTextProcent
-            ,meoretxtProcent,mesametxtProcent,albatoba;
+            ,meoretxtProcent,mesametxtProcent,albatoba,mycompany;
     View mwvaneLine;
     CardView cardViewOfProgress;
     examresults _examresults;
@@ -95,7 +98,8 @@ public class MainActivity extends YouTubeBaseActivity{
 
 
 
-        nameSurname = findViewById(R.id.nameSurname);
+        //nameSurname = findViewById(R.id.nameSurname);
+        mycompany = findViewById(R.id.mycompany);
         varjishiGamocda = findViewById(R.id.varjishiGamocda);
         RelativeLayout firstLayout = findViewById(R.id.firstLayout);
         RelativeLayout secondLayout = findViewById(R.id.secondLayout);
@@ -124,6 +128,7 @@ public class MainActivity extends YouTubeBaseActivity{
         pieChart.setInnerPaddingColor(Color.parseColor("#25343d"));
 
 
+
         //GETTING WIDTH AND HEIGHT OF CARDVIEW OF PROGRESS
         ViewTreeObserver vto = cardViewOfProgress.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -138,6 +143,16 @@ public class MainActivity extends YouTubeBaseActivity{
                 heightProgress = cardViewOfProgress.getMeasuredHeight();
                 Log.d("CARD",widthProgress + "width height" + heightProgress);
                 startWidthAnimation();
+            }
+        });
+        mycompany.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = "http://facebook.com/badri.rusadze";
+
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
             }
         });
 
@@ -176,15 +191,24 @@ public class MainActivity extends YouTubeBaseActivity{
         });
 
 
-        nameSurname.setText("გამარჯობა,");
-        profilePic.setImageResource(R.drawable.profile);
+        //nameSurname.setText("გამარჯობა,");
+        profilePic.setImageResource(R.drawable.questionmark);
+
+
 
         startCountAnimation(pirvelisTextProcent, 73);
         startCountAnimation(meoretxtProcent, 17);
         startCountAnimation(mesametxtProcent, 10);
 
 
-        layoutInflateUserExams("ჩაბარებული",15,15);
+        try {
+            createTextFileForResults();
+            readDataFromTextFile();
+            Log.d("logi" , String.valueOf(listStrings));
+            //Log.d("logi" , String.valueOf(listStrings.get(listStrings.size()-1)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
 
@@ -419,6 +443,64 @@ public class MainActivity extends YouTubeBaseActivity{
 
     }
 
+    private final String fileSaxeli = "examResultTextFile.txt";
+    List<String> listStrings = new ArrayList<>();
+    private File file;
+    private void addDataToTextFile(int corrects){
+        if(file.exists()){
+            //Toast.makeText(this,"FILE EXISTS",Toast.LENGTH_LONG).show();
+            Log.v("EXISTS",getFilesDir() + "/" + fileSaxeli);
+            FileWriter fw = null; //the true will append the new data
+            try {
+                fw = new FileWriter(getFilesDir() + "/" + fileSaxeli,true);
+                fw.write(corrects + "\n");//appends the string to the file
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            /*try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                    new FileOutputStream(getFilesDir() + "/" + fileSaxeli), StandardCharsets.UTF_8))) {
+                writer.write(corrects + "\n");
+
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }*/
+        }
+        else {
+            Log.v("NOTEXISTS",getFilesDir() + "/" + fileSaxeli);
+        }
+    }
+    private void createTextFileForResults() throws IOException {
+        file = new File(getFilesDir() + "/" + fileSaxeli);
+        file.createNewFile(); // if file already exists will do nothing
+    }
+    private void readDataFromTextFile() throws IOException {
+        // Open the file
+        FileInputStream fstream = new FileInputStream(getFilesDir() + "/" + fileSaxeli);
+        BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+
+        String strLine;
+
+        //Read File Line By Line
+        while ((strLine = br.readLine()) != null)   {
+            // Print the content on the console
+            listStrings.add(strLine);
+        }
+        Log.d("readFrom" , String.valueOf(listStrings));
+        if(listStrings != null){
+            for (int i = 0; i < listStrings.size(); i++) {
+                Log.d("forloop" , listStrings.get(i));
+                layoutInflateUserExams(Integer.parseInt(listStrings.get(i)));
+            }
+        }
+
+
+
+        //Close the input stream
+        fstream.close();
+    }
+
     public static int loadStatsCorrect;
     public static int loadStatsFalse;
     public void loadStats(){
@@ -433,12 +515,13 @@ public class MainActivity extends YouTubeBaseActivity{
         }
     }
 
-    void layoutInflateUserExams(String shedegi , int swori, int araswori){
-
-        for(int i = 0; i <= 5; i++){
-            String shedegiText = shedegi;
+    @SuppressLint("SetTextI18n")
+    void layoutInflateUserExams(int swori){
+            String shedegiText = "ჩაბარებული";
             String sworiText = String.valueOf(swori);
-            String arasworiText = String.valueOf(araswori);
+
+            int arasworipasuxi = 30 - swori;
+
             LayoutInflater inflater = LayoutInflater.from(this);
             RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.examresults, null, false);
 
@@ -449,10 +532,22 @@ public class MainActivity extends YouTubeBaseActivity{
             TextView sworiarasworiText = layout.findViewById(R.id.sworiarasworiText);
             View qvedaXaziColor = layout.findViewById(R.id.qvedaXaziColor);
 
+
+            if(30 - swori > 3){
+                shedegiText = "ჩაუბარებელი";
+                qvedaXaziColor.setBackgroundColor(Color.RED);
+            }
+            else{
+                shedegiText = "ჩაბარებული";
+                qvedaXaziColor.setBackgroundColor(Color.GREEN);
+            }
+
+
             testresultText.setText(" ტესტის შედეგი : " + shedegiText);
-            sworiarasworiText.setText(" სწორი პასუხი : " + sworiText + " არასწორი პასუხი : " + arasworiText);
-            qvedaXaziColor.setBackgroundColor(Color.GREEN);
-        }
+            sworiarasworiText.setText(" სწორი პასუხი : " + sworiText + " არასწორი პასუხი : " + arasworipasuxi);
+            qvedaXaziColor.setBackgroundColor(Color.RED);
+
+
 
     }
     void setPieChartData(){
@@ -497,8 +592,8 @@ public class MainActivity extends YouTubeBaseActivity{
                             "არასწორი პასუხები",
                             Integer.parseInt(tvPython.getText().toString()),
                             Color.parseColor("#E0183D")));
-            tvR.setText("სწორი პასუხები - " + loadStatsCorrect);
-            tvPython.setText("არასწორი პასუხები - " + loadStatsFalse);
+            tvR.setText("სწორი  - " + loadStatsCorrect);
+            tvPython.setText("არასწორი  - " + loadStatsFalse);
         /*pieChart.addPieSlice(
                 new PieModel(
                         "C++",

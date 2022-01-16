@@ -21,7 +21,16 @@
        android:layout_marginLeft="20dp"
        android:layout_width="match_parent"
        android:layout_height="wrap_content">
-           <TextView
+           <ImageView
+               android:layout_width="50dp"
+               android:layout_height="50dp"
+               android:src="@drawable/tireslogo"
+               android:layout_marginTop="7dp"
+               android:layout_alignParentLeft="true">
+
+           </ImageView>
+
+        <!--   <TextView
                android:id="@+id/nameSurname"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
@@ -30,16 +39,17 @@
                android:text="გამარჯობა,"
                android:textAlignment="viewStart"
                android:textColor="#FFFFFF"
-               android:textSize="15sp" />
+               android:textSize="15sp" /> -->
 
            <ImageView
                android:id="@+id/profilePic"
-               android:layout_width="40dp"
-               android:layout_height="40dp"
+               android:layout_width="30dp"
+               android:layout_height="30dp"
                android:layout_alignParentRight="true"
                android:layout_marginTop="10dp"
                android:src="@drawable/img_1"
-               app:srcCompat="@drawable/profile" />
+               app:srcCompat="@drawable/questionmark"
+               app:tint="@color/white" />
     </RelativeLayout>
 
        <LinearLayout
@@ -423,7 +433,8 @@
                        <View
                            android:layout_width="match_parent"
                            android:layout_height="3dp"
-                           android:background="#00ff00"/>
+                           android:background="#2BFFAB"
+                           android:layout_marginRight="5dp"/>
                        <View
                            android:layout_width="match_parent"
                            android:layout_height="30dp"
@@ -438,7 +449,8 @@
                        <View
                            android:layout_width="match_parent"
                            android:layout_height="3dp"
-                           android:background="#ff0000"/>
+                           android:background="#ff0000"
+                           android:layout_marginRight="5dp"/>
 
                    </LinearLayout>
                </LinearLayout>
@@ -488,7 +500,7 @@
                        android:layout_width="230dp"
                        android:layout_height="match_parent"
                        android:layout_alignParentTop="true"
-                       android:background="#00FF00"></View>
+                       android:background="#2BFFAB"></View>
                </RelativeLayout>
 
 
@@ -505,43 +517,17 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:orientation="vertical">
-               <RelativeLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="50dp"
-                   android:background="#25343d">
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="20dp"
-                       android:layout_marginTop="4dp"
-                       android:fontFamily="@font/medcap"
-                       android:text=" ტესტის შედეგი : "
-                       android:textAlignment="textStart"
-                       android:textColor="@color/white"
-                       android:textSize="12sp" />
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="15dp"
-                       android:layout_marginTop="25dp"
-                       android:fontFamily="@font/medcap"
-                       android:text=" სწორი პასუხი : არასწორი პასუხი"
-                       android:textAlignment="textStart"
-                       android:textColor="@color/white"
-                       android:textSize="8sp" />
-                   <View
-                       android:layout_width="match_parent"
-                       android:layout_height="4dp"
-                       android:background="@color/white"
-                       android:layout_alignParentBottom="true">
-                   </View>
-               </RelativeLayout>
+
            </LinearLayout>
        </androidx.core.widget.NestedScrollView>
 
            <TextView
+               android:id="@+id/mycompany"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:fontFamily="@font/medcap"
-               android:text="Fueled by Mycompany"
+               android:text="with ♡ by Mycompany"
+               android:layout_marginBottom="6dp"
                android:textAlignment="center"
                android:textColor="#959a9e"
                android:textSize="14sp"
@@ -550,11 +536,6 @@
 
    </LinearLayout>
 
-   <!-- <com.google.android.youtube.player.YouTubePlayerView
-        android:id="@+id/youtube_player"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000" />-->
 
 
 </ScrollView>
