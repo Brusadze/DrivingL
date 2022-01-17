@@ -65,229 +65,229 @@ public class Biletebi extends AppCompatActivity {
         bileti1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
-                intent.putExtra("switchMode", 1);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 1);
                 startActivity(intent);
             }
         });
         bileti2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
-                intent.putExtra("switchMode", 2);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 2);
                 startActivity(intent);
             }
         });
         bileti3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 3);
                 startActivity(intent);
             }
         });
         bileti4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 4);
                 startActivity(intent);
             }
         });
         bileti5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 5);
                 startActivity(intent);
             }
         });
         bileti6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 6);
                 startActivity(intent);
             }
         });
         bileti7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 7);
                 startActivity(intent);
             }
         });
         bileti8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 8);
                 startActivity(intent);
             }
         });
         bileti9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 9);
                 startActivity(intent);
             }
         });
         bileti10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 10);
                 startActivity(intent);
             }
         });
         bileti11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 11);
                 startActivity(intent);
             }
         });
         bileti12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 12);
                 startActivity(intent);
             }
         });
         bileti13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 13);
                 startActivity(intent);
             }
         });
         bileti14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 14);
                 startActivity(intent);
             }
         });
         bileti15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 15);
                 startActivity(intent);
             }
         });
         bileti16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 16);
                 startActivity(intent);
             }
         });
         bileti17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 17);
                 startActivity(intent);
             }
         });
         bileti18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 18);
                 startActivity(intent);
             }
         });
         bileti19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 19);
                 startActivity(intent);
             }
         });
         bileti20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 20);
                 startActivity(intent);
             }
         });
         bileti21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 21);
                 startActivity(intent);
             }
         });
         bileti22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 22);
                 startActivity(intent);
             }
         });
         bileti23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 23);
                 startActivity(intent);
             }
         });
         bileti24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 24);
                 startActivity(intent);
             }
         });
         bileti25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 25);
                 startActivity(intent);
             }
         });
         bileti26.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 26);
                 startActivity(intent);
             }
         });
         bileti27.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 27);
                 startActivity(intent);
             }
         });
         bileti28.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 28);
                 startActivity(intent);
             }
         });
         bileti29.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 29);
                 startActivity(intent);
             }
         });
         bileti30.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 30);
                 startActivity(intent);
             }
         });
         bileti31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 31);
                 startActivity(intent);
             }
         });
         bileti32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);
+                Intent intent = new Intent(Biletebi.this, CategoriesClass.class);        intent.putExtra("switchMode", 32);
                 startActivity(intent);
             }
         });
+
+
 
     }
 }

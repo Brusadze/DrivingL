@@ -938,10 +938,14 @@ public class ExamActivity extends AppCompatActivity {
             });
             pasuxiErtiText.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
+
                     gacemuliPasuxi.add(pasuxiErtiText.getText().toString());
                     Log.d("STATEBI" , String.valueOf(gacemuliPasuxi));
                     Log.d("STATEBI" , String.valueOf(questionId));
                     if(database.correctAnswerValue.equals(pasuxiErtiText.getText().toString())){
+
+                        database.insertAnswersForMainManu(true);
+
                         firstQuestionRelative.setBackgroundColor(Color.parseColor("#00ff00"));
                         makeUnclickable();
                         correctAnswer = 1;
@@ -955,6 +959,7 @@ public class ExamActivity extends AppCompatActivity {
                         }
                     }
                     else{
+                        database.insertAnswersForMainManu(false);
                         falseAnswer = 1;
                         trueAnswer = false;
                         makeUnclickable();
@@ -980,6 +985,7 @@ public class ExamActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if(database.correctAnswerValue.equals(pasuxiOriText.getText().toString())){
                         secondQuestionRelative.setBackgroundColor(Color.parseColor("#00ff00"));
+                        database.insertAnswersForMainManu(true);
                         makeUnclickable();
                         correctAnswer = 1;
                         trueAnswer = true;
@@ -993,6 +999,7 @@ public class ExamActivity extends AppCompatActivity {
                     else{
                         falseAnswer = 1;
                         trueAnswer = false;
+                        database.insertAnswersForMainManu(false);
                         makeUnclickable();
                         try {
                             saveNewStats();
@@ -1017,6 +1024,7 @@ public class ExamActivity extends AppCompatActivity {
 
                     if(database.correctAnswerValue.equals(pasuxiSamiText.getText().toString())){
                         relativeLayoutMesameQuest.setBackgroundColor(Color.parseColor("#00ff00"));
+                        database.insertAnswersForMainManu(true);
                         makeUnclickable();
                         correctAnswer = 1;
                         trueAnswer = true;
@@ -1030,6 +1038,7 @@ public class ExamActivity extends AppCompatActivity {
                     else{
                         falseAnswer = 1;
                         trueAnswer = false;
+                        database.insertAnswersForMainManu(false);
                         makeUnclickable();
                         try {
                             saveNewStats();
@@ -1051,6 +1060,7 @@ public class ExamActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     if(database.correctAnswerValue.equals(pasuxiOtxiText.getText().toString())){
                         relativeLayoutMeotxeQuest.setBackgroundColor(Color.parseColor("#00ff00"));
+                        database.insertAnswersForMainManu(true);
                         makeUnclickable();
                         correctAnswer = 1;
                         trueAnswer = true;
@@ -1064,6 +1074,7 @@ public class ExamActivity extends AppCompatActivity {
                     else{
                         falseAnswer = 1;
                         trueAnswer = false;
+                        database.insertAnswersForMainManu(false);
                         makeUnclickable();
                         try {
                             saveNewStats();
@@ -1098,6 +1109,7 @@ public class ExamActivity extends AppCompatActivity {
         nextQuestionButton = (Button) findViewById(R.id.nextQuestionButton);
         nextQuestionButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                database.getCorrectAnswersManu();
                 textNumber++; //counting untill 30
                 linearExplanation.setVisibility(View.GONE);
                 /*if(trueAnswer)

@@ -10,6 +10,7 @@
     tools:context=".MainActivity"
     tools:ignore="SpeakableTextPresentCheck">
 
+
    <LinearLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
@@ -51,6 +52,22 @@
                app:srcCompat="@drawable/questionmark"
                app:tint="@color/white" />
     </RelativeLayout>
+       <RelativeLayout
+           android:id="@+id/kitxvisNishani"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+           <TextView
+               android:layout_marginTop="5dp"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="Lorem ipsum dolor sit amet consectetur adipiscing elit, aliquam luctus montes mi dignissim posuere commodo, purus praesent torquent natoque magna molestie. Augue massa pulvinar justo placerat sagittis eget aptent senectus velit nisl malesuada magnis, ante torquent risus condimentum blandit lectus dignissim faucibus porttitor inceptos. Nisi class natoque potenti egestas fringilla luctus massa conubia, mus congue penatibus libero vestibulum fermentum faucibus, at vulputate porta montes in sociosqu tellus."
+               android:textAlignment="center"
+               android:fontFamily="@font/medcap"
+               android:textColor="@color/white"
+               android:textSize="14sp">
+
+           </TextView>
+       </RelativeLayout>
 
        <LinearLayout
            android:layout_width="match_parent"
@@ -508,6 +525,7 @@
            </androidx.cardview.widget.CardView>
 
        </LinearLayout>
+
        <androidx.core.widget.NestedScrollView
            android:layout_width="match_parent"
            android:layout_height="150dp"

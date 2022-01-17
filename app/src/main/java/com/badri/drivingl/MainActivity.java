@@ -88,14 +88,17 @@ public class MainActivity extends YouTubeBaseActivity{
     private int widthProgress;
     private int heightProgress;
 
+    private int profilp = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ImageView profilePic = findViewById(R.id.profilePic);
+
         prefs = getSharedPreferences("com.badri.drivingl", MODE_PRIVATE);
 
 
+        checkFirstRun();
 
 
         //nameSurname = findViewById(R.id.nameSurname);
@@ -105,6 +108,7 @@ public class MainActivity extends YouTubeBaseActivity{
         RelativeLayout secondLayout = findViewById(R.id.secondLayout);
         RelativeLayout chaabarebTuVer = findViewById(R.id.chaabarebTuVer);
         RelativeLayout thirdLayout = findViewById(R.id.thirdLayout);
+        RelativeLayout kitxvisNishani = findViewById(R.id.kitxvisNishani);
         cardViewOfProgress = findViewById(R.id.cardViewOfProgress); //CARDVIEW OF PROGRESS
         //RelativeLayout biletebiLayout = findViewById(R.id.biletebiLayout);
         userExamResultsLinear = findViewById(R.id.userExamResultsLinear);
@@ -115,13 +119,24 @@ public class MainActivity extends YouTubeBaseActivity{
         albatoba = findViewById(R.id.albatoba);
         pieChart = findViewById(R.id.piechart);
 
+        /*String appDataPath = this.getApplicationInfo().dataDir;
+        File file = new File(appDataPath + "/databases/examData.dtb");
+        if(file.exists())
+           Log.d("databasecopy", "FILE EXISTS ");
+        else{
+            databaseCopy();
+            Log.d("databasecopy", "SUCCESFULLY COPIED");
+        }
+
 
         //COPYING DATABASE FROM ASSETS TO DATA/DATABASES/
         databaseCopy();
-        //statsDatabaseCopy();
-
+        //statsDatabaseCopy();*/
+        //databaseCopy();
         dbManager = new DBManager(this);
         dbManager.open();
+
+
 
         chaabarebsTuVera();
         setPieChartData();
@@ -145,6 +160,7 @@ public class MainActivity extends YouTubeBaseActivity{
                 startWidthAnimation();
             }
         });
+
         mycompany.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,12 +171,17 @@ public class MainActivity extends YouTubeBaseActivity{
                 startActivity(i);
             }
         });
-
-       profilePic.setOnClickListener(new View.OnClickListener() {
+        kitxvisNishani.setVisibility(View.GONE);
+        profilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 /*Intent intent = new Intent(MainActivity.this, progress.class);
                 startActivity(intent);*/
+                profilp++;
+                if(profilp % 2 != 0)
+                    kitxvisNishani.setVisibility(View.VISIBLE);
+                else
+                    kitxvisNishani.setVisibility(View.GONE);
             }
         });
         thirdLayout.setOnClickListener(new View.OnClickListener() {
@@ -247,6 +268,38 @@ public class MainActivity extends YouTubeBaseActivity{
 
 
 
+    }
+    private void checkFirstRun() {
+
+        final String PREFS_NAME = "MyPrefsFile";
+        final String PREF_VERSION_CODE_KEY = "version_code";
+        final int DOESNT_EXIST = -1;
+
+        // Get current version code
+        int currentVersionCode = BuildConfig.VERSION_CODE;
+
+        // Get saved version code
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        int savedVersionCode = prefs.getInt(PREF_VERSION_CODE_KEY, DOESNT_EXIST);
+
+        // Check for first run or upgrade
+        if (currentVersionCode == savedVersionCode) {
+
+            // This is just a normal run
+            return;
+
+        } else if (savedVersionCode == DOESNT_EXIST) {
+
+            // TODO This is a new install (or the user cleared the shared preferences)
+            databaseCopy();
+
+        } else if (currentVersionCode > savedVersionCode) {
+
+            // TODO This is an upgrade
+        }
+
+        // Update the shared preferences with the current version code
+        prefs.edit().putInt(PREF_VERSION_CODE_KEY, currentVersionCode).apply();
     }
 
 

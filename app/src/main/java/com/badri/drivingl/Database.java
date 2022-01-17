@@ -37,7 +37,7 @@ public class Database {
     public void burjo(){
 
         //final String MY_QUERY = "SELECT MAX(_id) AS _id FROM exams WHERE category = 1";
-        final String MY_QUERY = "SELECT MAX(randomId) AS randomId FROM exams WHERE category = 'ყველა'";
+        final String MY_QUERY = "SELECT MAX(randomId) AS randomId FROM exams "; // WHERE category = 'ყველა'
         Cursor mCursor = database.rawQuery(MY_QUERY, null);
         try {
             if (mCursor.getCount() > 0) {
@@ -81,10 +81,12 @@ public class Database {
     public String correctAnswerValue;
     public String imageValue;
     public String ganmartebaValue;
+    public String categoryName;
+    public String _idd;
     public void getAnswers(int id){
         try{
             String s = String.valueOf(id);
-            String query ="SELECT answerOne,answerTwo,answerThree,answerFour,correctANSWER,imageView,ganmarteba,question FROM exams " + "WHERE randomId = " + s;
+            String query ="SELECT answerOne,answerTwo,answerThree,answerFour,correctANSWER,imageView,ganmarteba,question,category,_id FROM exams " + "WHERE randomId = " + s;
             Cursor cursor = database.rawQuery(query, null);
             if (cursor.moveToFirst()){
                 do{
@@ -96,7 +98,9 @@ public class Database {
                     imageValue = cursor.getString(5);
                     ganmartebaValue = cursor.getString(6);
                     questionValue = cursor.getString(7);
-                    Log.d("db", answerOneValue + answerTwoValue + answerThreeValue + answerFourValue);
+                    categoryName = cursor.getString(8);
+                    _idd = cursor.getString(9);
+                    Log.d("db", categoryName + " " + _idd);
                 }while (cursor.moveToNext());
             }
             cursor.close();
@@ -127,5 +131,39 @@ public class Database {
             //handle
         }
     }
+
+
+    public void insertAnswersForMainManu(boolean correct){
+        Log.d("Categ", categoryName);
+        String sworiUpdate ="UPDATE rameshleba SET sworipasuxi = sworipasuxi + 1 WHERE categoria = " + "\"" + categoryName + "\"";
+        String arasworiUpdate ="UPDATE rameshleba SET arasworipasuxi = arasworipasuxi + 1 WHERE categoria = " +  "\"" + categoryName + "\"";
+        if(correct)
+            database.execSQL(sworiUpdate);
+        else
+            database.execSQL(arasworiUpdate);
+    }
+
+    public String sumSworipasuxi;
+    public String  sumArasworipasuxi;
+    public void getCorrectAnswersManu(){
+        try{
+            String query ="SELECT SUM(sworipasuxi),SUM(arasworipasuxi) FROM rameshleba";
+            Cursor cursor = database.rawQuery(query, null);
+            if (cursor.moveToFirst()){
+                do{
+                    sumSworipasuxi = cursor.getString(0);
+                    sumArasworipasuxi = cursor.getString(1);
+                    Log.d("getCorrectAnswersManu", sumSworipasuxi + "sum" + sumArasworipasuxi + "arasSum");
+                }while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (SQLException e) {
+            //handle
+        }
+    }
+
+
+
+
 }
 
