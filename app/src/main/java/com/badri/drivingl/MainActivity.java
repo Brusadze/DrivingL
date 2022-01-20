@@ -68,7 +68,7 @@ public class MainActivity extends YouTubeBaseActivity{
     private static String videoId;
     YouTubePlayer.OnInitializedListener mOnInitializedListener;
     TextView nameSurname , varjishiGamocda, pirvelisTextProcent
-            ,meoretxtProcent,mesametxtProcent,albatoba,mycompany;
+            ,meoretxtProcent,mesametxtProcent,albatoba,mycompany,thirdPerc,secondPerc,firstPerc;
     View mwvaneLine;
     CardView cardViewOfProgress;
     examresults _examresults;
@@ -79,6 +79,7 @@ public class MainActivity extends YouTubeBaseActivity{
 
     int size;
     private DBManager dbManager;
+    private Database db;
 
     private SimpleCursorAdapter adapter;
     //to check firstrun
@@ -101,6 +102,9 @@ public class MainActivity extends YouTubeBaseActivity{
         checkFirstRun();
 
 
+        thirdPerc = findViewById(R.id.thirdPerc);
+        secondPerc = findViewById(R.id.secondPerc);
+        firstPerc = findViewById(R.id.firstPerc);
         //nameSurname = findViewById(R.id.nameSurname);
         mycompany = findViewById(R.id.mycompany);
         varjishiGamocda = findViewById(R.id.varjishiGamocda);
@@ -136,7 +140,11 @@ public class MainActivity extends YouTubeBaseActivity{
         dbManager = new DBManager(this);
         dbManager.open();
 
+        db = new Database(this);
+        db.open();
 
+
+        db.getTopThreeIncorrectAnswersMenu();
 
         chaabarebsTuVera();
         setPieChartData();
@@ -215,11 +223,13 @@ public class MainActivity extends YouTubeBaseActivity{
         //nameSurname.setText("გამარჯობა,");
         profilePic.setImageResource(R.drawable.questionmark);
 
-
-
-        startCountAnimation(pirvelisTextProcent, 73);
-        startCountAnimation(meoretxtProcent, 17);
-        startCountAnimation(mesametxtProcent, 10);
+        calculatePercent();
+        startCountAnimation(pirvelisTextProcent, (float)pirveli);
+        firstPerc.setText(db.bileti.get(0));
+        startCountAnimation(meoretxtProcent, (float)meore);
+        secondPerc.setText(db.bileti.get(1));
+        startCountAnimation(mesametxtProcent, (float)mesame);
+        thirdPerc.setText(db.bileti.get(2));
 
 
         try {
@@ -302,14 +312,35 @@ public class MainActivity extends YouTubeBaseActivity{
         prefs.edit().putInt(PREF_VERSION_CODE_KEY, currentVersionCode).apply();
     }
 
+    int jami;
+    double pirveli;
+    double meore;
+    double mesame;
 
-    private void startCountAnimation(TextView txtView , int _lastNum) {
-        ValueAnimator animator = ValueAnimator.ofInt(0, _lastNum);
+    private void calculatePercent(){
+        jami = Integer.parseInt(db.arasworiPasuxebi.get(0))
+                + Integer.parseInt(db.arasworiPasuxebi.get(1))
+                + Integer.parseInt(db.arasworiPasuxebi.get(2));
+
+        pirveli = Double.parseDouble(db.arasworiPasuxebi.get(0)) / jami;
+        meore = Double.parseDouble(db.arasworiPasuxebi.get(1)) / jami;
+        mesame = Double.parseDouble(db.arasworiPasuxebi.get(2)) / jami;
+
+        Log.d("SUMI" , pirveli + " " + meore + " " + mesame);
+    }
+
+    private void startCountAnimation(TextView txtView , float _lastNum) {
+
+       /* Log.d("SUMI" , String.valueOf(Integer.parseInt(db.arasworiPasuxebi.get(0))
+                + Integer.parseInt(db.arasworiPasuxebi.get(1))
+                + Integer.parseInt(db.arasworiPasuxebi.get(2))));*/
+
+        ValueAnimator animator = ValueAnimator.ofFloat(0, _lastNum * 100);
         animator.setDuration(5000);
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @SuppressLint("SetTextI18n")
+            @SuppressLint({"SetTextI18n", "DefaultLocale"})
             public void onAnimationUpdate(ValueAnimator animation) {
-                txtView.setText(animation.getAnimatedValue().toString() + " %");
+                txtView.setText(String.format("%.0f", animation.getAnimatedValue()) + " %");
             }
         });
         animator.start();

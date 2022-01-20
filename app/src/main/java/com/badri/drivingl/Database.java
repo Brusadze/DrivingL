@@ -1,6 +1,7 @@
 package com.badri.drivingl;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -9,6 +10,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Database {
     private final Context context;
@@ -162,8 +165,26 @@ public class Database {
         }
     }
 
+    List<String> bileti = new ArrayList<>();
+    List<String > arasworiPasuxebi = new ArrayList<>();
 
-
+    public void getTopThreeIncorrectAnswersMenu(){
+        try{
+            String query ="SELECT * FROM rameshleba ORDER BY arasworipasuxi DESC LIMIT 3";
+            Cursor cursor = database.rawQuery(query, null);
+            DatabaseUtils.dumpCursorToString(cursor);
+            if (cursor.moveToFirst()){
+                do{
+                    bileti.add(cursor.getString(cursor.getColumnIndex("categoria")));
+                    arasworiPasuxebi.add(cursor.getString(cursor.getColumnIndex("arasworipasuxi")));
+                    Log.d("getCorrectAnswersManu", bileti.toString() + "  " + arasworiPasuxebi.toString());
+                }while (cursor.moveToNext());
+            }
+            cursor.close();
+        } catch (SQLException e) {
+            //handle
+        }
+    }
 
 }
 

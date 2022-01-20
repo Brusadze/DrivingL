@@ -297,6 +297,7 @@
                            android:textColor="@color/white"></TextView>
 
                        <TextView
+                           android:id="@+id/firstPerc"
                            android:layout_width="match_parent"
                            android:layout_height="30dp"
                            android:layout_marginStart="10dp"
@@ -338,6 +339,7 @@
                            android:textColor="@color/white"></TextView>
 
                        <TextView
+                           android:id="@+id/secondPerc"
                            android:layout_width="match_parent"
                            android:layout_height="30dp"
                            android:layout_marginStart="10dp"
@@ -378,6 +380,7 @@
                            android:textColor="@color/white"></TextView>
 
                        <TextView
+                           android:id="@+id/thirdPerc"
                            android:layout_width="match_parent"
                            android:layout_height="30dp"
                            android:layout_marginStart="10dp"
