@@ -250,120 +250,9 @@ public class ExamActivity extends AppCompatActivity {
                         startActivity(intent);*/
                         addDataToTextFile(sworiPasuxebiExamBolos);
                         gridFinishLayout.setVisibility(View.VISIBLE);
+                        addOnclickListenersToFinishUi();
 
-                        bilet1text.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                scrollViewFINISH.setVisibility(View.VISIBLE);
-                                database.getAnswers(_idofBileti.get(0));
-
-                                if(database.imageValue.equals("")){
-                                    linearImageQuestionFINISH.setVisibility(View.GONE);
-                                }
-                                else{
-                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
-                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
-                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
-                                    imageQuestionFINISH.setImageResource(id);
-                                }
-
-                                shekitxvatextFINISH.setText(database.questionValue);
-                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
-                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
-
-                                if(database.answerThreeValue.isEmpty())
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
-                                }
-                                if(database.answerFourValue.isEmpty())
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
-                                }
-                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
-                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
-                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
-                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
-                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-
-
-
-
-                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
-                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
-                            }
-                        });
-
-                        bilet2text.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                scrollViewFINISH.setVisibility(View.VISIBLE);
-                                database.getAnswers(_idofBileti.get(1));
-
-                                if(database.imageValue.equals("")){
-                                    linearImageQuestionFINISH.setVisibility(View.GONE);
-                                }
-                                else{
-                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
-                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
-                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
-                                    imageQuestionFINISH.setImageResource(id);
-                                }
-
-                                shekitxvatextFINISH.setText(database.questionValue);
-                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
-                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
-
-                                if(database.answerThreeValue.isEmpty())
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
-                                }
-                                if(database.answerFourValue.isEmpty())
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
-                                }
-                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
-                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
-                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
-                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
-                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-
-
-                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
-                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
-                            }
-                        });
-
-                        if(sworiPasuxebiExamBolos >= 27){
+                        /*if(sworiPasuxebiExamBolos >= 27){
                             finishLayout.setVisibility(View.VISIBLE);
                             finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
                             finishLayoutText.setTextColor(Color.GREEN);
@@ -371,7 +260,7 @@ public class ExamActivity extends AppCompatActivity {
                             finishLayout.setVisibility(View.VISIBLE);
                             finishLayoutText.setText("შენ ვერ ჩააბრე გამოცდა");
                             finishLayoutText.setTextColor(Color.RED);
-                        }
+                        }*/
 
                     }
                     getRandom();
@@ -430,117 +319,7 @@ public class ExamActivity extends AppCompatActivity {
                         startActivity(intent);*/
                         addDataToTextFile(sworiPasuxebiExamBolos);
                         gridFinishLayout.setVisibility(View.VISIBLE);
-
-                        bilet1text.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                scrollViewFINISH.setVisibility(View.VISIBLE);
-                                database.getAnswers(_idofBileti.get(0));
-
-                                if(database.imageValue.equals("")){
-                                    linearImageQuestionFINISH.setVisibility(View.GONE);
-                                }
-                                else{
-                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
-                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
-                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
-                                    imageQuestionFINISH.setImageResource(id);
-                                }
-
-                                shekitxvatextFINISH.setText(database.questionValue);
-                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
-                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
-
-                                if(database.answerThreeValue.isEmpty())
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
-                                }
-                                if(database.answerFourValue.isEmpty())
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
-                                }
-                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
-                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
-                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
-                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
-                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-
-
-
-
-                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
-                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
-                            }
-                        });
-
-                        bilet2text.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                scrollViewFINISH.setVisibility(View.VISIBLE);
-                                database.getAnswers(_idofBileti.get(1));
-
-                                if(database.imageValue.equals("")){
-                                    linearImageQuestionFINISH.setVisibility(View.GONE);
-                                }
-                                else{
-                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
-                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
-                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
-                                    imageQuestionFINISH.setImageResource(id);
-                                }
-
-                                shekitxvatextFINISH.setText(database.questionValue);
-                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
-                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
-
-                                if(database.answerThreeValue.isEmpty())
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
-                                }
-                                if(database.answerFourValue.isEmpty())
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
-                                } if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
-                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
-                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
-                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
-                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-
-
-                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
-                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
-                            }
-                        });
+                        addOnclickListenersToFinishUi();
                         if(sworiPasuxebiExamBolos >= 27){
                             finishLayout.setVisibility(View.VISIBLE);
                             finishLayoutText.setText("შენ წარმატებით ჩააბარე გამოცდა");
@@ -600,118 +379,7 @@ public class ExamActivity extends AppCompatActivity {
                     if(textNumber > 30){
                         addDataToTextFile(sworiPasuxebiExamBolos);
                         gridFinishLayout.setVisibility(View.VISIBLE);
-
-                        bilet1text.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                scrollViewFINISH.setVisibility(View.VISIBLE);
-                                database.getAnswers(_idofBileti.get(0));
-
-                                if(database.imageValue.equals("")){
-                                    linearImageQuestionFINISH.setVisibility(View.GONE);
-                                }
-                                else{
-                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
-                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
-                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
-                                    imageQuestionFINISH.setImageResource(id);
-                                }
-
-                                shekitxvatextFINISH.setText(database.questionValue);
-                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
-                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
-
-                                if(database.answerThreeValue.isEmpty())
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
-                                }
-                                if(database.answerFourValue.isEmpty())
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
-                                }
-                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
-                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
-                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
-                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
-                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-
-
-
-
-                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
-                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
-                            }
-                        });
-
-                        bilet2text.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                scrollViewFINISH.setVisibility(View.VISIBLE);
-                                database.getAnswers(_idofBileti.get(1));
-
-                                if(database.imageValue.equals("")){
-                                    linearImageQuestionFINISH.setVisibility(View.GONE);
-                                }
-                                else{
-                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
-                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
-                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
-                                    imageQuestionFINISH.setImageResource(id);
-                                }
-
-                                shekitxvatextFINISH.setText(database.questionValue);
-                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
-                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
-
-                                if(database.answerThreeValue.isEmpty())
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
-                                }
-                                if(database.answerFourValue.isEmpty())
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
-                                }
-                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
-                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
-                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
-                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
-                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-
-
-                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
-                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
-                            }
-                        });
+                        addOnclickListenersToFinishUi();
                         /*Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);
@@ -778,117 +446,7 @@ public class ExamActivity extends AppCompatActivity {
                         addDataToTextFile(sworiPasuxebiExamBolos);
                         gridFinishLayout.setVisibility(View.VISIBLE);
 
-                        bilet1text.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                scrollViewFINISH.setVisibility(View.VISIBLE);
-                                database.getAnswers(_idofBileti.get(0));
-
-                                if(database.imageValue.equals("")){
-                                    linearImageQuestionFINISH.setVisibility(View.GONE);
-                                }
-                                else{
-                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
-                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
-                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
-                                    imageQuestionFINISH.setImageResource(id);
-                                }
-
-                                shekitxvatextFINISH.setText(database.questionValue);
-                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
-                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
-
-                                if(database.answerThreeValue.isEmpty())
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
-                                }
-                                if(database.answerFourValue.isEmpty())
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
-                                }
-
-                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
-                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
-                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
-                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
-                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-
-
-
-
-                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
-                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
-                            }
-                        });
-
-                        bilet2text.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                scrollViewFINISH.setVisibility(View.VISIBLE);
-                                database.getAnswers(_idofBileti.get(1));
-
-                                if(database.imageValue.equals("")){
-                                    linearImageQuestionFINISH.setVisibility(View.GONE);
-                                }
-                                else{
-                                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
-                                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
-                                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
-                                    imageQuestionFINISH.setImageResource(id);
-                                }
-
-                                shekitxvatextFINISH.setText(database.questionValue);
-                                pasuxiErtiTextFINISH.setText(database.answerOneValue);
-                                pasuxiOriTextFINISH.setText(database.answerTwoValue);
-
-                                if(database.answerThreeValue.isEmpty())
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
-                                }
-                                if(database.answerFourValue.isEmpty())
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
-                                else{
-                                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
-                                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
-                                }
-                                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
-                                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
-                                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
-                                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-                                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
-                                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
-                                else
-                                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
-
-                                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
-                                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
-                            }
-                        });
+                        addOnclickListenersToFinishUi();
                        /* Intent intent = new Intent(ExamActivity.this, finishexamLayout.class);
                         *//*intent.putIntegerArrayListExtra("questionId",questionId);
                         intent.putStringArrayListExtra("gacemuliPasuxi",gacemuliPasuxi);*//*
@@ -1423,9 +981,1689 @@ public class ExamActivity extends AppCompatActivity {
         textViewsList.add(bilet28text);
         textViewsList.add(bilet29text);
         textViewsList.add(bilet30text);
+    }
+    private void addOnclickListenersToFinishUi(){
+        bilet1text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(0));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
 
 
 
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+
+        bilet2text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(1));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+
+        bilet3text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(2));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+
+        bilet4text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(3));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet5text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(4));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet6text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(5));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet7text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(6));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet8text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(7));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet9text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(8));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet10text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(9));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet11text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(10));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet12text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(11));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet13text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(12));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet14text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(13));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet15text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(14));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet16text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(15));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet17text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(16));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet18text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(17));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet19text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(18));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet20text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(19));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet21text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(20));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet22text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(21));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet23text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(22));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet24text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(23));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet25text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(24));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet26text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(25));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet27text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(26));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet28text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(27));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet29text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(28));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
+        bilet30text.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollViewFINISH.setVisibility(View.VISIBLE);
+                database.getAnswers(_idofBileti.get(29));
+
+                if(database.imageValue.equals("")){
+                    linearImageQuestionFINISH.setVisibility(View.GONE);
+                }
+                else{
+                    linearImageQuestionFINISH.setVisibility(View.VISIBLE);
+                    int id = getResources().getIdentifier("drawable/" + "bdr" + database.imageValue.substring(0,database.imageValue.length()-4), "drawable", getPackageName());
+                    Log.d("RANDOM NUM",database.imageValue.substring(0,database.imageValue.length()-4) + " " + id);
+                    imageQuestionFINISH.setImageResource(id);
+                }
+
+                shekitxvatextFINISH.setText(database.questionValue);
+                pasuxiErtiTextFINISH.setText(database.answerOneValue);
+                pasuxiOriTextFINISH.setText(database.answerTwoValue);
+
+                if(database.answerThreeValue.isEmpty())
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMesameQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiSamiTextFINISH.setText(database.answerThreeValue);
+                }
+                if(database.answerFourValue.isEmpty())
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.GONE);
+                else{
+                    relativeLayoutMeotxeQuestFINISH.setVisibility(View.VISIBLE);
+                    pasuxiOtxiTextFINISH.setText(database.answerFourValue);
+                }
+                if(database.correctAnswerValue.equals(pasuxiErtiTextFINISH.getText()))
+                    firstQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    firstQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOriTextFINISH.getText()))
+                    secondQuestionRelativeFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    secondQuestionRelativeFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiSamiTextFINISH.getText()))
+                    relativeLayoutMesameQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMesameQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+                if(database.correctAnswerValue.equals(pasuxiOtxiTextFINISH.getText()))
+                    relativeLayoutMeotxeQuestFINISH.setBackgroundColor(Color.parseColor("#00ff00"));
+                else
+                    relativeLayoutMeotxeQuestFINISH.setBackground(getResources().getDrawable(R.drawable.pasuxi));
+
+
+
+
+                Log.d("CHECK", String.valueOf(database.answerThreeValue.isEmpty()));
+                Log.d("CHECK", String.valueOf(database.answerFourValue.isEmpty()));
+            }
+        });
     }
     private void arrageUI(int i){
         //database.getQuestion(i);
